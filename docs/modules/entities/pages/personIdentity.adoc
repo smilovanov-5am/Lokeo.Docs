@@ -1,4 +1,4 @@
 = PersonIdentity / Лицо
 :navtitle: PersonIdentity / Лицо
 
-image::personIdentity.png[scaledwidth=100%]
+image::personIdentity.png[scale=100%]
