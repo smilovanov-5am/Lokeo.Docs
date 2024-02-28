@@ -18,7 +18,7 @@ include::tables/personIdentity/personRussianResidencePermitIdentityDocument_tabl
 
 == Enums
 include::tables/personIdentity/contactType_enum_table.adoc[]
-include::tables/personIdentity/personIdentitySocialRating_table.adoc[]
+include::tables/personIdentity/personEmotionalStatus_enum_table.adoc[]
 include::tables/personIdentity/identityDocumentType_enum_table.adoc[]
 include::tables/personIdentity/sex_enum_table.adoc[]
 
