@@ -1,6 +1,6 @@
 = Участок / Land
 :navtitle: Участок / Land
 
-image::land.svg[float="left",align="center"]
+image::land.svg[Interactive, opts=interactive, float="left",align="center"]
 
 
