@@ -1,6 +1,31 @@
 = Land / Участок
 :navtitle: Land / Участок
 
+== Контекст
+.Land / Участок
+|===
+|Тип | Name | Название
+
+|guid:Relation
+|VillageId
+|Id посёлка
+
+|struct:LandName
+|Name
+|Наименование
+
+|struct:LandCadastreData
+|CadastreData
+|Кадастр участка
+|===
+
+== Enums
+
+
+== Другие сущности
+
+
+
 image::land.svg[Interactive, opts=interactive, float="left",align="center"]
 
 
