@@ -1,0 +1,16 @@
+.Land / Участок
+|===
+|Тип | Name | Название
+
+|guid:Relation
+|VillageId
+|Id посёлка
+
+|struct:LandName
+|Name
+|Наименование
+
+|struct:LandCadastreData
+|CadastreData
+|Кадастр участка
+|===
