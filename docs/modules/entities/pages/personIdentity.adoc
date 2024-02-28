@@ -1,0 +1,4 @@
+= PersonIdentity / Лицо
+:navtitle: PersonIdentity / Лицо
+
+image::personIdentity.png[]

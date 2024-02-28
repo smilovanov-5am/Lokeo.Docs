@@ -3,13 +3,17 @@
 skinparam linetype ortho
 !includesub land.puml!Main
 
-!startsub Main
-entity "Посёлок / Village" as Village {
-    *guid <<generated>> : Id
-    --
-    *string: Название / Name
+package Context
+{
+    !startsub Main
+    entity "Посёлок / Village" as Village {
+        |<#FF8080> guid |= Id | Id посёлка |
+        --
+        |<#FF8080> string |= Name | Название |
+    }
+    !endsub
 }
-!endsub
+
 
 !includesub relations.puml!Village
 
