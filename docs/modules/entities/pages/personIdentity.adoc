@@ -3,7 +3,7 @@
 
 [plantuml, bar, svg]
 ....
-include::examples/test.puml[]
+include::example$test.puml[]
 ....
 
 
