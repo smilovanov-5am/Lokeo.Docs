@@ -1,4 +1,10 @@
 = PersonIdentity / Лицо
 :navtitle: PersonIdentity / Лицо
 
+[plantuml, bar, svg]
+....
+include::examples/test.puml[]
+....
+
+
 image::personIdentity.png[opts="align-to-page"]
