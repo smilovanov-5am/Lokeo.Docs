@@ -1,7 +1,7 @@
 = Land / Участок
 :navtitle: Land / Участок
 
-image::land.svg[Interactive, opts=interactive, float="left",align="center"]
+image::land.svg[Interactive, opts=interactive, align="center"]
 
 == Контекст
 include::tables/land/land_table.adoc[]
