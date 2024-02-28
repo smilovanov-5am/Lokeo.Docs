@@ -1,7 +1,7 @@
 = PersonIdentity / Лицо
 :navtitle: PersonIdentity / Лицо
 
-[plantuml,pdf]
+[plantuml]
 ....
 include::example$test.puml[]
 ....

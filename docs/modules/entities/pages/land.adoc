@@ -1,6 +1,10 @@
 = Участок / Land
 :navtitle: Участок / Land
 
-image::land.png[]
+[plantuml]
+....
+include::example$land.puml[]
+....
+
 
 
