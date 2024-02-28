@@ -1,0 +1,4 @@
+= Village / Посёлок
+:navtitle: Village / Посёлок
+
+image::village.svg[Interactive, opts=interactive, float="left",align="center"]

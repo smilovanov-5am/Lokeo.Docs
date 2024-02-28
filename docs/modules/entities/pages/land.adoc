@@ -1,5 +1,5 @@
-= Участок / Land
-:navtitle: Участок / Land
+= Land / Участок
+:navtitle: Land / Участок
 
 image::land.svg[Interactive, opts=interactive, float="left",align="center"]
 
