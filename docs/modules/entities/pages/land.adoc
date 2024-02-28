@@ -1,6 +1,6 @@
 = Участок / Land
 :navtitle: Участок / Land
 
-image::land.ext[]
+image::land.png[]
 
 
