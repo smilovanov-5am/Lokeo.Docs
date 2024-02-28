@@ -1,6 +1,11 @@
 .Village | Посёлок
 include::../core_table.adoc[tags=start]
 
+|guid:Key
+|Id
+|Id посёлка
+|
+
 |string
 |Name
 |Наименование

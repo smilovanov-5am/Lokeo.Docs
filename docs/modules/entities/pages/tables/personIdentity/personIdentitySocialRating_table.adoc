@@ -1,0 +1,14 @@
+.PersonIdentitySocialRating | Социальный рейтинг
+include::../core_table.adoc[tags=start]
+
+|enum:PersonEmotionalStatus
+|EmotionalStatus
+|Эмоциональный статус
+|
+
+|string
+|Comment
+|Комментарий
+|
+
+include::../core_table.adoc[tags=end]

@@ -1,0 +1,39 @@
+.PersonRussianBirthCertificateIdentityDocument | Свидетельство о рождении РФ
+include::../core_table.adoc[tags=start]
+
+|string 
+|Series 
+|Серия паспорта 
+|
+
+|string 
+|Number 
+|Номер паспорта 
+|
+
+|string 
+|Issuer 
+|Орган выдачи 
+|
+
+|date 
+|IssueDate 
+|Дата выдачи 
+|
+
+|enum:Sex 
+|Sex 
+|Пол 
+|
+
+|date 
+|BirthDate 
+|Дата рождения 
+|
+
+|string 
+|BirthPlace 
+|Место рождения 
+|
+
+include::../core_table.adoc[tags=end]

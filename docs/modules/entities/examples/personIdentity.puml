@@ -1,0 +1,57 @@
+@startuml
+
+skinparam linetype ortho
+top to bottom direction
+
+package Context
+{
+    !startsub Main
+    entity "PersonIdentity | Лицо" as PersonIdentity {
+    }
+    !endsub
+
+    struct "PersonContact | Контакт лица" as PersonContact {
+    }
+
+    struct "PersonIdentitySocialRating |  Социальный рейтинг" as PersonIdentitySocialRating {
+    }
+}
+
+package Counterparty
+{
+    entity "PersonCounterparty | Паспорт лица" as PersonCounterparty {
+    }
+
+
+    struct "PersonRussianPassportIdentityDocument | Паспорт РФ" as PersonRussianPassportIdentityDocument
+    {
+    }
+
+    struct "PersonForeignPassportIdentityDocument | Иностранный паспорт" as PersonForeignPassportIdentityDocument
+    {
+    }
+
+    struct "PersonRussianBirthCertificateIdentityDocument | Свидетельство о рождении РФ" as PersonRussianBirthCertificateIdentityDocument
+    {
+    }
+
+    struct "PersonRussianResidencePermitIdentityDocument | ВНЖ РФ" as PersonRussianResidencePermitIdentityDocument
+    {
+    }
+}
+
+PersonIdentity-[hidden]down-PersonCounterparty
+PersonCounterparty-[hidden]down-PersonRussianPassportIdentityDocument
+PersonRussianPassportIdentityDocument-[hidden]down-PersonForeignPassportIdentityDocument
+PersonForeignPassportIdentityDocument-[hidden]down-PersonRussianBirthCertificateIdentityDocument
+PersonRussianBirthCertificateIdentityDocument-[hidden]down-PersonRussianResidencePermitIdentityDocument
+
+PersonContact "<<много>>" -- "<<1>>" PersonIdentity : < имеет
+PersonIdentitySocialRating "<<1>>" -- "<<1>>" PersonIdentity : < имеет
+PersonCounterparty "**<color green><<1>></color>**" -- "**<color green><<1>></color>**" PersonIdentity : < имеет
+PersonRussianPassportIdentityDocument "<<0..1>>" -- "<<1>>" PersonCounterparty : < имеет
+PersonForeignPassportIdentityDocument "<<0..1>>" -- "<<1>>" PersonCounterparty : < имеет
+PersonRussianBirthCertificateIdentityDocument "<<0..1>>" -- "<<1>>" PersonCounterparty : < имеет
+PersonRussianResidencePermitIdentityDocument "<<0..1>>" -- "<<1>>" PersonCounterparty : < имеет
+
+@enduml

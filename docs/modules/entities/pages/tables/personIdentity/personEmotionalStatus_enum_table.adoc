@@ -1,0 +1,17 @@
+.PersonEmotionalStatus | Эмоциональный статус
+include::../enum_table.adoc[tags=start]
+
+|Neutral
+|Нейтральный
+|
+
+|Positive
+|Положительный
+|
+
+|Negative
+|Отрицательный
+|
+
+
+include::../enum_table.adoc[tags=end]

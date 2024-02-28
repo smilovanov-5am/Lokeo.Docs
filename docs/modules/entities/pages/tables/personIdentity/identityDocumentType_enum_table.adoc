@@ -1,0 +1,24 @@
+.IdentityDocumentType | Тип документа
+include::../enum_table.adoc[tags=start]
+
+|NoDocument
+|Документ отсутствует
+|
+
+|RussianPassport
+|Паспорт РФ
+|
+
+|ForeignPassport
+|Иностранный паспорт
+|
+
+|RussianResidencePermit
+|ВНЖ РФ
+|
+
+|RussianBirthCertificate
+|Свидетельство о рождении РФ
+|
+
+include::../enum_table.adoc[tags=end]

@@ -1,0 +1,12 @@
+.Sex | Пол
+include::../enum_table.adoc[tags=start]
+
+|Female
+|Женский
+|
+
+|Male
+|Мужской
+|
+
+include::../enum_table.adoc[tags=end]

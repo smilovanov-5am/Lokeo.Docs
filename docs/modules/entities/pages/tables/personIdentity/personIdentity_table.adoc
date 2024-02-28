@@ -1,0 +1,39 @@
+.PersonIdentity | Лицо
+include::../core_table.adoc[tags=start]
+
+|guid:Key
+|Id
+|Id лица
+|
+
+|guid:Relation
+|CounterpartyId
+|Id паспортных данных
+|
+
+|struct:PersonIdentitySocialRating
+|SocialRating
+|Социальный рейтинг
+|
+
+|list of structs:PersonContact
+|PersonContacts
+|Контакты лица
+|
+
+|string
+|FirstName
+|Имя
+|
+
+|string
+|MiddleName
+|Отчество
+|
+
+|string
+|LastName
+|Фамилия
+|
+
+include::../core_table.adoc[tags=end]

@@ -1,0 +1,13 @@
+.ContactType | Тип контакта
+include::../enum_table.adoc[tags=start]
+
+|PhoneNumber
+|Телефон
+|
+
+|Email
+|Электронная почта
+|
+
+
+include::../enum_table.adoc[tags=end]

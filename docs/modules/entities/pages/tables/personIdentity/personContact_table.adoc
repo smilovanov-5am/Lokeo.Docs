@@ -1,0 +1,19 @@
+.PersonContact | Контакт лица
+include::../core_table.adoc[tags=start]
+
+|string
+|Value
+|Значение
+|
+
+|enum:ContactType
+|ContactType
+|Тип контакта
+|
+
+|bool
+|UseForMailing
+|Использовать для рассылки
+|
+
+include::../core_table.adoc[tags=end]

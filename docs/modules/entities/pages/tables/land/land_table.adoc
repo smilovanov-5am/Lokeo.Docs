@@ -1,7 +1,12 @@
 .Land | Участок
 include::../core_table.adoc[tags=start]
 
-|guid:Relation
+|guid:Key
+|Id
+|Id участка
+|
+
+|(?)guid:Relation
 |VillageId
 |Id посёлка
 |

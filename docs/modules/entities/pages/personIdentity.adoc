@@ -1,4 +1,25 @@
 = PersonIdentity / Лицо
 :navtitle: PersonIdentity / Лицо
 
-image::test.svg[Interactive, opts=interactive, float="left",align="center"]
+image::personIdentity.svg[]
+
+
+== Контекст
+include::tables/personIdentity/personIdentity_table.adoc[]
+include::tables/personIdentity/personContact_table.adoc[]
+include::tables/personIdentity/personIdentitySocialRating_table.adoc[]
+
+== Паспортные данные
+include::tables/personIdentity/personCounterparty_table.adoc[]
+include::tables/personIdentity/personRussianPassportIdentityDocument_table.adoc[]
+include::tables/personIdentity/personForeignPassportIdentityDocument_table.adoc[]
+include::tables/personIdentity/personRussianBirthCertificateIdentityDocument_table.adoc[]
+include::tables/personIdentity/personRussianResidencePermitIdentityDocument_table.adoc[]
+
+== Enums
+include::tables/personIdentity/contactType_enum_table.adoc[]
+include::tables/personIdentity/personIdentitySocialRating_table.adoc[]
+include::tables/personIdentity/identityDocumentType_enum_table.adoc[]
+include::tables/personIdentity/sex_enum_table.adoc[]
+
+

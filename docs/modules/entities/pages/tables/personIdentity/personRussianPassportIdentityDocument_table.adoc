@@ -1,0 +1,49 @@
+.PersonRussianPassportIdentityDocument | Паспорт РФ
+include::../core_table.adoc[tags=start]
+
+|string 
+|Series 
+|Серия паспорта 
+|
+
+|string 
+|Number 
+|Номер паспорта
+|
+
+|string 
+|DepartmentCode 
+|Код подразделения 
+|
+
+|string 
+|Issuer 
+|Орган выдачи 
+|
+
+|date 
+|IssueDate 
+|Дата выдачи 
+|
+
+|enum:Sex
+|Sex 
+|Пол 
+|
+
+|date 
+|BirthDate 
+|Дата рождения 
+|
+
+|string 
+|BirthPlace 
+|Место рождения 
+|
+
+|string 
+|RegistrationAddress 
+|Адрес регистрации 
+|
+
+include::../core_table.adoc[tags=end]

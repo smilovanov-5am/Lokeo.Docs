@@ -1,0 +1,44 @@
+.PersonCounterparty | Паспорт лица
+include::../core_table.adoc[tags=start]
+
+|guid:Key
+|Id
+|Id паспорта
+|
+
+|guid:Relation
+|PersonIdentityId
+|Id лица
+|
+
+|bool
+|IsCounterparty
+|Есть паспорт
+|
+
+|enum:IdentityDocumentType
+|IdentityDocumentType
+|Тип документа
+|
+
+|(?)struct:PersonRussianPassportIdentityDocument
+|RussianPassport
+|Паспорт РФ
+|
+
+|(?)struct:PersonForeignPassportIdentityDocument
+|ForeignPassport
+|Иностранный паспорт
+|
+
+|(?)struct:PersonRussianBirthCertificateIdentityDocument
+|RussianBirthCertificate
+|Свидетельство о рождении РФ
+|
+
+|(?)struct:PersonRussianResidencePermitIdentityDocument
+|RussianResidencePermit
+|ВНЖ РФ
+|
+
+include::../core_table.adoc[tags=end]
