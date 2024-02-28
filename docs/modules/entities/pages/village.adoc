@@ -5,7 +5,7 @@
 include::tables/village/village_table.adoc[]
 
 == Другие сущности
-xref:lanb.adoc[]
+xref:land.adoc[]
 
 include::tables/land/land_table.adoc[]
 
