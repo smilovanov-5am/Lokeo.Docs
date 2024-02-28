@@ -46,12 +46,12 @@ PersonRussianPassportIdentityDocument-[hidden]down-PersonForeignPassportIdentity
 PersonForeignPassportIdentityDocument-[hidden]down-PersonRussianBirthCertificateIdentityDocument
 PersonRussianBirthCertificateIdentityDocument-[hidden]down-PersonRussianResidencePermitIdentityDocument
 
-PersonContact "<<много>>" -- "<<1>>" PersonIdentity : < имеет
-PersonIdentitySocialRating "<<1>>" -- "<<1>>" PersonIdentity : < имеет
-PersonCounterparty "**<color green><<1>></color>**" -- "**<color green><<1>></color>**" PersonIdentity : < имеет
-PersonRussianPassportIdentityDocument "<<0..1>>" -- "<<1>>" PersonCounterparty : < имеет
-PersonForeignPassportIdentityDocument "<<0..1>>" -- "<<1>>" PersonCounterparty : < имеет
-PersonRussianBirthCertificateIdentityDocument "<<0..1>>" -- "<<1>>" PersonCounterparty : < имеет
-PersonRussianResidencePermitIdentityDocument "<<0..1>>" -- "<<1>>" PersonCounterparty : < имеет
+PersonContact }o--|| PersonIdentity
+PersonIdentitySocialRating ||--|| PersonIdentity
+PersonCounterparty ||--|| PersonIdentity
+PersonRussianPassportIdentityDocument |o--|| PersonCounterparty
+PersonForeignPassportIdentityDocument |o--|| PersonCounterparty
+PersonRussianBirthCertificateIdentityDocument |o--|| PersonCounterparty
+PersonRussianResidencePermitIdentityDocument |o--|| PersonCounterparty
 
 @enduml

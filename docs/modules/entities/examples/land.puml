@@ -18,8 +18,8 @@ package Context
     }
 } 
 
-LandName -- Land : < имеет
-LandCadastreData -- Land : < имеет
+LandName ||--|| Land
+LandCadastreData ||--|| Land
 
 !includesub relations.puml!Land
 
