@@ -3,11 +3,11 @@
 skinparam linetype ortho
 
 !startsub Land
-Village "<<1>>" -- "<<много>>" Land
+Village "<<1>>" -down- "<<много>>" Land
 !endsub
 
 !startsub Village
-Village "<<1>>" -- "<<много>>" Land
+Village "<<1>>" -down- "<<много>>" Land
 !endsub
 
 
