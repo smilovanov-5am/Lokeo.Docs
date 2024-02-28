@@ -1,9 +1,9 @@
 = Village / Посёлок
 :navtitle: Village / Посёлок
 
-===
-image::village.svg[Interactive, opts=interactive]
-===
+
+image::village.svg[]
+
 
 == Контекст
 include::tables/village/village_table.adoc[]
