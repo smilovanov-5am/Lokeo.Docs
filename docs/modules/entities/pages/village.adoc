@@ -1,6 +1,8 @@
 = Village / Посёлок
 :navtitle: Village / Посёлок
 
+image::village.svg[Interactive, opts=interactive, float="left",align="center"]
+
 == Контекст
 include::tables/village/village_table.adoc[]
 
@@ -8,5 +10,3 @@ include::tables/village/village_table.adoc[]
 xref:land.adoc[]
 
 include::tables/land/land_table.adoc[]
-
-image::village.svg[Interactive, opts=interactive, float="left",align="center"]

@@ -1,6 +1,8 @@
 = Land / Участок
 :navtitle: Land / Участок
 
+image::land.svg[Interactive, opts=interactive, float="left",align="center"]
+
 == Контекст
 include::tables/land/land_table.adoc[]
 include::tables/land/landname_table.adoc[]
@@ -15,6 +17,5 @@ xref:village.adoc[]
 
 include::tables/village/village_table.adoc[]
 
-image::land.svg[Interactive, opts=interactive, float="left",align="center"]
 
 
