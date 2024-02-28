@@ -1,0 +1,16 @@
+@startuml
+
+skinparam linetype ortho
+!includesub land.puml!Main
+
+!startsub Main
+entity "Посёлок / Village" as Village {
+    *guid <<generated>> : Id
+    --
+    *string: Название / Name
+}
+!endsub
+
+!includesub relations.puml!Village
+
+@enduml

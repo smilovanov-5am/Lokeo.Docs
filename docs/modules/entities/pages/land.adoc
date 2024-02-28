@@ -1,0 +1,6 @@
+= Участок / Land
+:navtitle: Участок / Land
+
+image::../../../../diagrams/entities/land/land.png[]
+
+

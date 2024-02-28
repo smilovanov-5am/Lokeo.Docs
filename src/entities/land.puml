@@ -1,0 +1,30 @@
+@startuml
+
+skinparam linetype ortho
+
+!includesub village.puml!Main
+
+!startsub Main
+entity "Участок / Land" as Land {
+    *guid <<generated>> : Id
+    --
+    guid: Id посёлка / VillageId
+    --
+    LandName: Название участка / LandName
+    --
+}
+!endsub
+
+struct "Название участка / LandName" as LandName {
+    int: Номер / LandName.Number
+    int: Цифра префикса / LandName.PrefixDigit
+    int: Буква префикса / LandName.PrefixLetter
+    int: Цифра постфикса / LandName.PostfixDigit
+    int: Буква постфикса / LandName.PostfixLetter
+}
+
+LandName -- Land : < имеет
+
+!includesub relations.puml!Land
+
+@enduml

@@ -1,0 +1,7 @@
+name: lokeo.docs
+title: Lokeo Docs
+version: 0.1
+nav:
+- modules/ROOT/nav.adoc
+- modules/entities/nav.adoc
+

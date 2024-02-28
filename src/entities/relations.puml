@@ -1,0 +1,14 @@
+@startuml
+
+skinparam linetype ortho
+
+!startsub Land
+Village "1" -- "много" Land
+!endsub
+
+!startsub Village
+Village "1" -- "много" Land
+!endsub
+
+
+@enduml
