@@ -1,0 +1,40 @@
+.LandCadastreData | Кадастр участка
+include::../core_table.adoc[tags=start]
+
+|bool
+|IsEmpty
+|Пустые данные
+|
+
+|string
+|CadastreNumber
+|Номер кадастра
+|
+
+|decimal
+|Area
+|Площадь
+|
+
+|string
+|Address
+|Адрес
+|
+
+|enum:AllowedUseType
+|AllowedUseType
+|ВРИ
+|
+
+|decimal
+|Cost
+|Стоимость
+|
+
+|enum:LandCategory
+|LandCategory
+|Категория земли
+|
+
+
+include::../core_table.adoc[tags=end]

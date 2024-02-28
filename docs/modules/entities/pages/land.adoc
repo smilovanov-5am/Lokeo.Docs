@@ -2,15 +2,18 @@
 :navtitle: Land / Участок
 
 == Контекст
-
-include::tables/land_table.adoc[]
+include::tables/land/land_table.adoc[]
+include::tables/land/landname_table.adoc[]
+include::tables/land/landcadastre_table.adoc[]
 
 == Enums
-
+include::tables/land/landcategory_enum_table.adoc[]
+include::tables/land/allowedusetype_enum_table.adoc[]
 
 == Другие сущности
+xref:village.adoc[]
 
-
+include::tables/village/village_table.adoc[]
 
 image::land.svg[Interactive, opts=interactive, float="left",align="center"]
 

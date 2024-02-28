@@ -1,0 +1,8 @@
+.Enum
+// tag::start[] 
+|===
+| Name | Название | Описание
+// end::start[] 
+// tag::end[] 
+|===
+// end::end[] 

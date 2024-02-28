@@ -1,16 +1,19 @@
-.Land / Участок
-|===
-|Тип | Name | Название
+.Land | Участок
+include::../core_table.adoc[tags=start]
 
 |guid:Relation
 |VillageId
 |Id посёлка
+|
 
 |struct:LandName
 |Name
 |Наименование
+|
 
 |struct:LandCadastreData
 |CadastreData
 |Кадастр участка
-|===
+|
+
+include::../core_table.adoc[tags=end]

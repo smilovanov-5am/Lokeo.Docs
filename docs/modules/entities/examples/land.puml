@@ -1,63 +1,25 @@
 @startuml
 
 skinparam linetype ortho
-top to bottom direction
+
 !includesub village.puml!Main
 
 package Context
 {
     !startsub Main
     entity "Land | Участок " as Land {
-        |<#FF8080> guid |= Id | Id участка |
-        --
-        | guid |= VillageId | Id посёлка |
-        --
-        |<#FF8080>  LandName |= Name | Название участка |
-        |<#FF8080>  LandCadastreData |= CadastreData | Кадастр участка |
     }
     !endsub
 
     struct "LandName | Название участка" as LandName {
-        |<#FF8080> bool |= IsEmpty | Пустые данные |
-        | int |= Number | Номер |
-        | int |= PrefixDigit | Цифра префикса |
-        | string |= PrefixLetter | Буква префикса |
-        | int |= PostfixDigit | Цифра постфикса |
-        | string |= PostfixLetter | Буква постфикса |
     }
 
     struct "LandCadastreData | Кадастр участка" as LandCadastreData {
-        |<#FF8080> bool |= IsEmpty | Пустые данные |
-        | string |= CadastreNumber | Номер кадастра |
-        | decimal |= Area | Площадь |
-        | string |= Address | Адрес |
-        | enum:AllowedUseType |= AllowedUseType | ВРИ |
-        | decimal |= Cost | Стоимость |
-        | enum:LandCategory |= LandCategory | Категория земли |
     }
 } 
 
-
-package enums 
-{
-    enum "LandCategory | Категория земли" as LandCategory {
-        |= LandCategory1 | Земли сельскохозяйственного назначения |
-        |= LandCategory2 | Земли населенных пунктов |
-        |= LandCategory3 | Земли промышленности |
-    }
-
-    enum "AllowedUseType | ВРИ" as AllowedUseType {
-        |= UseType1 | ИЖС |
-        |= UseType2 | ЛПХ |
-        |= UseType3 | КФХ |
-        |= UseType4 | Сельхозназначения |
-        |= UseType5 | Для садоводства |
-    }
-}
-
-
-Context -[hidden]down- enums : < имеет
 LandName -- Land : < имеет
+LandCadastreData -- Land : < имеет
 
 !includesub relations.puml!Land
 

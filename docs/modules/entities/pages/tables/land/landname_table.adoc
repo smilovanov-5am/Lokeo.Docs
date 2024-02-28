@@ -1,0 +1,35 @@
+.LandName | Наименование участка
+include::../core_table.adoc[tags=start]
+
+|bool
+|IsEmpty
+|Пустые данные
+|
+
+|int
+|Number
+|Номер
+|
+
+|int
+|PrefixDigit
+|Цифра префикса
+|
+
+|string
+|PrefixLetter
+|Буква префикса
+|
+
+|int
+|PostfixDigit
+|Цифра постфикса
+|
+
+|string
+|PostfixLetter
+|Буква постфикса
+|
+
+
+include::../core_table.adoc[tags=end]

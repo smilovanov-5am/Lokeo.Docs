@@ -1,0 +1,9 @@
+.Village | Посёлок
+include::../core_table.adoc[tags=start]
+
+|string
+|Name
+|Наименование
+|
+
+include::../core_table.adoc[tags=end]

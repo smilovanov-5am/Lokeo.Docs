@@ -1,0 +1,24 @@
+.AllowedUseType | ВРИ
+include::../enum_table.adoc[tags=start]
+
+|UseType1
+|ИЖС
+|
+
+|UseType2
+|ЛПХ
+|
+
+|UseType3
+|КФХ
+|
+
+|UseType4
+|Сельхозназначения
+|
+
+|UseType5
+|Для садоводства
+|
+
+include::../enum_table.adoc[tags=end]

@@ -1,4 +1,12 @@
 = Village / Посёлок
 :navtitle: Village / Посёлок
 
+== Контекст
+include::tables/village/village_table.adoc[]
+
+== Другие сущности
+xref:lanb.adoc[]
+
+include::tables/land/land_table.adoc[]
+
 image::village.svg[Interactive, opts=interactive, float="left",align="center"]

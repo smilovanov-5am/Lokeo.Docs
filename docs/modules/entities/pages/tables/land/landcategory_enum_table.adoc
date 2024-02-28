@@ -1,0 +1,17 @@
+.LandCategory | Категория земли
+include::../enum_table.adoc[tags=start]
+
+|LandCategory1
+|Земли сельскохозяйственного назначения
+|
+
+|LandCategory2
+|Земли населенных пунктов
+|
+
+|LandCategory3
+|Земли промышленности
+|
+
+include::../enum_table.adoc[tags=end]
+
