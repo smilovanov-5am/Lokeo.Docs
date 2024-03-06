@@ -14,7 +14,7 @@
 
 ==== Сущность contractWidget
 * Список лицевых счетов
-.JSON
+
 [source,json]
 ----
 {
