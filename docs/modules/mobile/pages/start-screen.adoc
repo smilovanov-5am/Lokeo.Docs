@@ -1,0 +1,532 @@
+= Стартовый экран
+
+---
+<1> GET mobile/startScreen
+---
+Параметры запроса::
+* **landIds** - список Id участков
+** Например: mobile/startScreen?landIds=1,2,3
+* **useDevData** - true/false - использовать при возврате результата фейковые данные
+** Например: mobile/startScreen?useDevData=true
+
+[%collapsible]
+[source,json]
+----
+{
+    "contractWidget": {
+        "items": [
+            {
+                "contractId": 5884,
+                "productId": 1,
+                "name": "Обслуживание поселка",
+                "land": {
+                    "id": 1769,
+                    "number": "29",
+                    "prefix": null,
+                    "village": {
+                        "id": 2,
+                        "name": "Улыбка-2"
+                    }
+                },
+                "needToPay": 2500,
+                "needToToPayInDays": 0,
+                "debtInDays": 0,
+                "isPaid": false,
+                "isDebt": true,
+                "penalties": null,
+                "fines": null
+            },
+            {
+                "contractId": 5884,
+                "productId": 1,
+                "name": "Обслуживание поселка",
+                "land": {
+                    "id": 1769,
+                    "number": "29",
+                    "prefix": null,
+                    "village": {
+                        "id": 2,
+                        "name": "Улыбка-2"
+                    }
+                },
+                "needToPay": 2500,
+                "needToToPayInDays": 0,
+                "debtInDays": 0,
+                "isPaid": false,
+                "isDebt": true,
+                "penalties": {
+                    "penaltiesPerMonth": 345.0,
+                    "penaltiesPerDay": 11.5
+                },
+                "fines": null
+            },
+            {
+                "contractId": 5884,
+                "productId": 1,
+                "name": "Обслуживание поселка",
+                "land": {
+                    "id": 1769,
+                    "number": "29",
+                    "prefix": null,
+                    "village": {
+                        "id": 2,
+                        "name": "Улыбка-2"
+                    }
+                },
+                "needToPay": 2500,
+                "needToToPayInDays": 0,
+                "debtInDays": 0,
+                "isPaid": false,
+                "isDebt": true,
+                "penalties": null,
+                "fines": {
+                    "finesPerMonth": 50
+                }
+            },
+            {
+                "contractId": 5884,
+                "productId": 3,
+                "name": "Обслуживание газопровода",
+                "land": {
+                    "id": 1769,
+                    "number": "29",
+                    "prefix": null,
+                    "village": {
+                        "id": 2,
+                        "name": "Улыбка-2"
+                    }
+                },
+                "needToPay": 2500,
+                "needToToPayInDays": 0,
+                "debtInDays": 0,
+                "isPaid": false,
+                "isDebt": true,
+                "penalties": null,
+                "fines": null
+            },
+            {
+                "contractId": 5884,
+                "productId": 3,
+                "name": "Обслуживание газопровода",
+                "land": {
+                    "id": 1769,
+                    "number": "29",
+                    "prefix": null,
+                    "village": {
+                        "id": 2,
+                        "name": "Улыбка-2"
+                    }
+                },
+                "needToPay": 2500,
+                "needToToPayInDays": 0,
+                "debtInDays": 0,
+                "isPaid": false,
+                "isDebt": true,
+                "penalties": {
+                    "penaltiesPerMonth": 345.0,
+                    "penaltiesPerDay": 11.5
+                },
+                "fines": null
+            },
+            {
+                "contractId": 5884,
+                "productId": 3,
+                "name": "Обслуживание газопровода",
+                "land": {
+                    "id": 1769,
+                    "number": "29",
+                    "prefix": null,
+                    "village": {
+                        "id": 2,
+                        "name": "Улыбка-2"
+                    }
+                },
+                "needToPay": 2500,
+                "needToToPayInDays": 0,
+                "debtInDays": 0,
+                "isPaid": false,
+                "isDebt": true,
+                "penalties": null,
+                "fines": {
+                    "finesPerMonth": 50
+                }
+            },
+            {
+                "contractId": 5884,
+                "productId": 1,
+                "name": "Обслуживание поселка",
+                "land": {
+                    "id": 1769,
+                    "number": "29",
+                    "prefix": null,
+                    "village": {
+                        "id": 2,
+                        "name": "Улыбка-2"
+                    }
+                },
+                "needToPay": 2500,
+                "needToToPayInDays": 0,
+                "debtInDays": 15,
+                "isPaid": false,
+                "isDebt": false,
+                "penalties": null,
+                "fines": null
+            },
+            {
+                "contractId": 5884,
+                "productId": 1,
+                "name": "Обслуживание поселка",
+                "land": {
+                    "id": 1769,
+                    "number": "29",
+                    "prefix": null,
+                    "village": {
+                        "id": 2,
+                        "name": "Улыбка-2"
+                    }
+                },
+                "needToPay": 2500,
+                "needToToPayInDays": 3,
+                "debtInDays": 18,
+                "isPaid": false,
+                "isDebt": false,
+                "penalties": null,
+                "fines": null
+            },
+            {
+                "contractId": 5884,
+                "productId": 3,
+                "name": "Обслуживание газопровода",
+                "land": {
+                    "id": 1769,
+                    "number": "29",
+                    "prefix": null,
+                    "village": {
+                        "id": 2,
+                        "name": "Улыбка-2"
+                    }
+                },
+                "needToPay": 2500,
+                "needToToPayInDays": 0,
+                "debtInDays": 15,
+                "isPaid": false,
+                "isDebt": false,
+                "penalties": null,
+                "fines": null
+            },
+            {
+                "contractId": 5884,
+                "productId": 3,
+                "name": "Обслуживание газопровода",
+                "land": {
+                    "id": 1769,
+                    "number": "29",
+                    "prefix": null,
+                    "village": {
+                        "id": 2,
+                        "name": "Улыбка-2"
+                    }
+                },
+                "needToPay": 2500,
+                "needToToPayInDays": 3,
+                "debtInDays": 18,
+                "isPaid": false,
+                "isDebt": false,
+                "penalties": null,
+                "fines": null
+            },
+            {
+                "contractId": 5884,
+                "productId": 1,
+                "name": "Обслуживание поселка",
+                "land": {
+                    "id": 1769,
+                    "number": "29",
+                    "prefix": null,
+                    "village": {
+                        "id": 2,
+                        "name": "Улыбка-2"
+                    }
+                },
+                "needToPay": 2500,
+                "needToToPayInDays": 0,
+                "debtInDays": 0,
+                "isPaid": true,
+                "isDebt": false,
+                "penalties": null,
+                "fines": null
+            },
+            {
+                "contractId": 5884,
+                "productId": 3,
+                "name": "Обслуживание газопровода",
+                "land": {
+                    "id": 1769,
+                    "number": "29",
+                    "prefix": null,
+                    "village": {
+                        "id": 2,
+                        "name": "Улыбка-2"
+                    }
+                },
+                "needToPay": 2500,
+                "needToToPayInDays": 0,
+                "debtInDays": 0,
+                "isPaid": true,
+                "isDebt": false,
+                "penalties": null,
+                "fines": null
+            }
+        ],
+        "position": 0
+    },
+    "documentWidget": {
+        "items": [],
+        "position": 1
+    },
+    "autoPaymentWidget": {
+        "items": [ 
+            {
+                "id": 0,
+                "name": "Обслуживание посёлка",
+                "payPerMonth": 2500,
+                "nextPayment": "2024-03-07T10:44:00.691",
+                "card": "1230**8742",
+                "land": {
+                    "id": 1769,
+                    "number": "29",
+                    "prefix": null,
+                    "village": {
+                        "id": 2,
+                        "name": "Улыбка-2"
+                    }
+                }
+            },
+            {
+                "id": 0,
+                "name": "Вывоз мусора",
+                "payPerMonth": 2500,
+                "nextPayment": "2024-03-16T10:44:00.691",
+                "card": "1230**8742",
+                "land": {
+                    "id": 1769,
+                    "number": "29",
+                    "prefix": null,
+                    "village": {
+                        "id": 2,
+                        "name": "Улыбка-2"
+                    }
+                }
+            }
+        ],
+        "position": 2
+    },
+    "votingWidget": {
+        "items": [
+            {
+                "title": "Какая УК из представленных нравится вам больше?",
+                "votingUntil": "2024-03-13T10:44:00.758",
+                "land": {
+                    "id": 1769,
+                    "number": "29",
+                    "prefix": null,
+                    "village": {
+                        "id": 2,
+                        "name": "Улыбка-2"
+                    }
+                }
+            },
+            {
+                "title": "Нужны ли обязательные отчисления для уборки территории?",
+                "votingUntil": "2024-03-20T10:44:00.758",
+                "land": {
+                    "id": 1769,
+                    "number": "29",
+                    "prefix": null,
+                    "village": {
+                        "id": 2,
+                        "name": "Улыбка-2"
+                    }
+                }
+            }
+        ],
+        "position": 3
+    },
+    "passWidget": {
+        "items": [
+            {
+                "id": 2816,
+                "land": {
+                    "id": 1769,
+                    "number": "29",
+                    "prefix": null,
+                    "village": {
+                        "id": 2,
+                        "name": "Улыбка-2"
+                    }
+                },
+                "firstName": "Рустам",
+                "middleName": "Халимович",
+                "lastName": "Харисов",
+                "personGroupName": "Житель",
+                "personGroupIcon": "https://storage.yandexcloud.net/lokeo-dev/icons/Home_duotone.svg",
+                "passageEventResult": null,
+                "passageDateTime": null
+            }
+        ],
+        "position": 4
+    },
+    "newsWidget": {
+        "items": [
+            {
+                "tags": [
+                    "Новости посёлка",
+                    "Собрание"
+                ],
+                "publicationDate": "2024-03-06T10:44:00.761",
+                "body": "Дорогие жители посёлка Мирный, 15 марта 2023 года пройдет собрание по вопросу пьянства",
+                "unread": true,
+                "land": {
+                    "id": 1769,
+                    "number": "29",
+                    "prefix": null,
+                    "village": {
+                        "id": 2,
+                        "name": "Улыбка-2"
+                    }
+                }
+            },
+            {
+                "tags": [
+                    "Новости посёлка",
+                    "Собрание"
+                ],
+                "publicationDate": "2024-03-05T10:44:00.761",
+                "body": "Хотим сообщить вам о предстоящем собрании, которое состоится 15 марта. Главная тема - штрафы",
+                "unread": false,
+                "land": {
+                    "id": 1769,
+                    "number": "29",
+                    "prefix": null,
+                    "village": {
+                        "id": 2,
+                        "name": "Улыбка-2"
+                    }
+                }
+            },
+            {
+                "tags": [
+                    "Новости посёлка"
+                ],
+                "publicationDate": "2024-03-01T10:44:00.761",
+                "body": "Хотим поздравить вас с праздником и сообщить об предстоящем отключении горячей воды на месяц",
+                "unread": false,
+                "land": {
+                    "id": 1769,
+                    "number": "29",
+                    "prefix": null,
+                    "village": {
+                        "id": 2,
+                        "name": "Улыбка-2"
+                    }
+                }
+            }
+        ],
+        "position": 5
+    },
+    "orderWidget": {
+        "items": [
+            {
+                "icon": "https://storage.yandexcloud.net/lokeo-dev/icons/Home_duotone.svg",
+                "title": "Уборка территории",
+                "land": {
+                    "id": 1769,
+                    "number": "29",
+                    "prefix": null,
+                    "village": {
+                        "id": 2,
+                        "name": "Улыбка-2"
+                    }
+                },
+                "creationDate": "2024-03-07T10:44:00.764"
+            },
+            {
+                "icon": "https://storage.yandexcloud.net/lokeo-dev/icons/Home_duotone.svg",
+                "title": "Стрижка газона",
+                "land": {
+                    "id": 1769,
+                    "number": "29",
+                    "prefix": null,
+                    "village": {
+                        "id": 2,
+                        "name": "Улыбка-2"
+                    }
+                },
+                "creationDate": "2024-03-06T10:44:00.764"
+            }
+        ],
+        "position": 6
+    },
+    "ticketWidget": {
+        "items": [
+            {
+                "title": "Нет горячей воды",
+                "land": {
+                    "id": 1769,
+                    "number": "29",
+                    "prefix": null,
+                    "village": {
+                        "id": 2,
+                        "name": "Улыбка-2"
+                    }
+                },
+                "creationDate": "2024-03-06T10:44:00.766",
+                "newMessagedCount": 2
+            },
+            {
+                "title": "Шумят соседи",
+                "land": {
+                    "id": 1769,
+                    "number": "29",
+                    "prefix": null,
+                    "village": {
+                        "id": 2,
+                        "name": "Улыбка-2"
+                    }
+                },
+                "creationDate": "2024-03-05T10:44:00.766",
+                "newMessagedCount": 0
+            },
+            {
+                "title": "Как оплатить штраф?",
+                "land": {
+                    "id": 1769,
+                    "number": "29",
+                    "prefix": null,
+                    "village": {
+                        "id": 2,
+                        "name": "Улыбка-2"
+                    }
+                },
+                "creationDate": "2024-03-01T10:44:00.766",
+                "newMessagedCount": 1
+            }
+        ],
+        "position": 7
+    },
+    "infoWidget": {
+        "items": [
+            {
+                "id": 1769,
+                "number": "29",
+                "prefix": null,
+                "village": {
+                    "id": 2,
+                    "name": "Улыбка-2"
+                }
+            }
+        ],
+        "position": 8
+    }
+}
+----

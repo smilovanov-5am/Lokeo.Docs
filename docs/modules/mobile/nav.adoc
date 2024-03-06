@@ -1,0 +1,2 @@
+* Мобила
+** xref:start-screen.adoc[]
