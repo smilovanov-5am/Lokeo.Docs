@@ -15,11 +15,6 @@
 ==== Сущность contractWidget
 * Список лицевых счетов
 
-[%collapsible]
-====
-This content is only revealed when the user clicks the block title.
-====
-
 .JSON
 [%collapsible]
 ====
@@ -87,22 +82,30 @@ This content is only revealed when the user clicks the block title.
 * Список документов
 ** Пока что нет макета для представления данной сущности
 
+.JSON
+[%collapsible]
+====
 [source,json]
----
+----
 {
     "documentWidget": {
         "items": [],
         "position": 1
     }
 }
----
+----
+====
 
 ==== Сущность autoPaymentWidget
 * Список автоплатежей
 ** Пока что нет макета для представления данной сущности
 
+
+.JSON
+[%collapsible]
+====
 [source,json]
----
+----
 {
     "autoPaymentWidget": {
         "items": [
@@ -126,13 +129,17 @@ This content is only revealed when the user clicks the block title.
         "position": 2
     }
 }
----
+----
+====
 
 ==== Сущность votingWidget
 * Список голосований
 
+.JSON
+[%collapsible]
+====
 [source,json]
----
+----
 {
     "votingWidget": {
         "items": [
@@ -153,13 +160,18 @@ This content is only revealed when the user clicks the block title.
         "position": 3
     }
 }
----
+----
+====
 
 
 ==== Сущность passWidget
 * Список пропусков
+
+.JSON
+[%collapsible]
+====
 [source,json]
----
+----
 {
     "passWidget": {
         "items": [
@@ -186,12 +198,17 @@ This content is only revealed when the user clicks the block title.
         "position": 4
     }
 }
----
+----
+====
 
 ==== Сущность newsWidget
 * Список новостей
+
+.JSON
+[%collapsible]
+====
 [source,json]
----
+----
 {
     "newsWidget": {
         "items": [
@@ -217,12 +234,17 @@ This content is only revealed when the user clicks the block title.
         "position": 5
     }
 }
----
+----
+====
 
 ==== Сущность orderWidget
 * Список заказов
+
+.JSON
+[%collapsible]
+====
 [source,json]
----
+----
 {
      "orderWidget": {
         "items": [
@@ -244,12 +266,17 @@ This content is only revealed when the user clicks the block title.
         "position": 6
     }
 }
----
+----
+====
 
 ==== Сущность ticketWidget
 * Список обращений
+
+.JSON
+[%collapsible]
+====
 [source,json]
----
+----
 {
 "ticketWidget": {
         "items": [
@@ -271,12 +298,17 @@ This content is only revealed when the user clicks the block title.
         "position": 7
     }
 }
----
+----
+====
 
 ==== Сущность infoWidget
 * Список информации
+
+.JSON
+[%collapsible]
+====
 [source,json]
----
+----
 {
     "infoWidget": {
         "items": [
@@ -293,10 +325,16 @@ This content is only revealed when the user clicks the block title.
         "position": 8
     }
 }
----
+----
+====
 
 ==== Пример полного ответа
-[source,json,%collapsible]
+
+
+.JSON
+[%collapsible]
+====
+[source,json]
 ----
 {
     "contractWidget": {
@@ -816,11 +854,17 @@ This content is only revealed when the user clicks the block title.
     }
 }
 ----
+====
 
 === Требования
 ---
+
+
 ==== RQR-01 - Сортировка виджетов стартового экрана
 
+.Подробности
+[%collapsible%open]
+====
 Приложение::
 Мобильное приложение
 
@@ -829,10 +873,14 @@ This content is only revealed when the user clicks the block title.
 
 Описание::
 * Необходимо сортировать полученные виджеты по значению position - от меньшего к большему
+====
 
 ---
 ==== RQR-02 - Фильтрация участков пользователя на стартовом экране
 
+.Подробности
+[%collapsible%open]
+====
 Приложение::
 Мобильное приложение
 
@@ -842,6 +890,7 @@ This content is only revealed when the user clicks the block title.
 Описание::
 * Необходимо фильтровать виджеты участков по параметру landIds, передавая id участков. 
 * Отсутствие landIds означает получение виджетов по всем участкам
+====
 
 
 
