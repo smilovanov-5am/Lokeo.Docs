@@ -14,6 +14,8 @@
 
 ==== Сущность contractWidget
 * Список лицевых счетов
+.JSON
+[%collapsible]
 [source,json]
 ---
 {
