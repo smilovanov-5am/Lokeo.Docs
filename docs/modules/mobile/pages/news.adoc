@@ -29,8 +29,20 @@ http://api.stage.lokeodata.ru:5002/swagger/index.html?urls.primaryName=Main%20Mo
     "pinned": true,
     "publicationDate": "2024-03-29T13:26:00.918",
     "viewCount": 1,
-    "files": [],
-    "photos": [],
+    "files": [
+        {
+          "id": "08dc4fda-a17f-4f3b-89e8-080f9f6d2a2d",
+          "name": "Чудо Град.xml",
+          "publicPath" : "https://s3.yandexcloud.net/lokeo-dev/cadastralPlans/08db98c4-948a-4aef-89ad-065c20cf9db7-Чудо Град.xml"
+        }
+    ],
+    "photos": [
+        {
+          "id": "08dc4fda-a17f-4f3b-89e8-080f9f6d2a2d",
+          "name": "Чудо Град.png",
+          "publicPath" : "https://s3.yandexcloud.net/lokeo-dev/cadastralPlans/08db98c4-948a-4aef-89ad-065c20cf9db7-Чудо Град.png"
+        }
+    ],
     "tags": [
       {
         "id": "08dc4fda-a17f-4f3b-89e8-080f9f6d2a2d",
@@ -121,8 +133,20 @@ http://api.stage.lokeodata.ru:5002/swagger/index.html?urls.primaryName=Main%20Mo
   "pinned": true,
   "publicationDate": "2024-03-29T13:26:00.918",
   "viewCount": 1,
-  "files": [],
-  "photos": [],
+  "files": [
+        {
+          "id": "08dc4fda-a17f-4f3b-89e8-080f9f6d2a2d",
+          "name": "Чудо Град.xml",
+          "publicPath" : "https://s3.yandexcloud.net/lokeo-dev/cadastralPlans/08db98c4-948a-4aef-89ad-065c20cf9db7-Чудо Град.xml"
+        }
+    ],
+  "photos": [
+        {
+          "id": "08dc4fda-a17f-4f3b-89e8-080f9f6d2a2d",
+          "name": "Чудо Град.png",
+          "publicPath" : "https://s3.yandexcloud.net/lokeo-dev/cadastralPlans/08db98c4-948a-4aef-89ad-065c20cf9db7-Чудо Град.png"
+        }
+    ],
   "tags": [
     {
       "id": "08dc4fda-a17f-4f3b-89e8-080f9f6d2a2d",
