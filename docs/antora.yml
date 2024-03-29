@@ -4,4 +4,6 @@ version: old
 nav:
 - modules/ROOT/nav.adoc
 - modules/mobile/nav.adoc
+- modules/web/nav.adoc
+
 
