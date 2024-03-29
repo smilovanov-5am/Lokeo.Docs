@@ -361,24 +361,6 @@ http://api.stage.lokeodata.ru:5002/swagger/index.html?urls.primaryName=Main%20We
     "isSuccess": true,
     "errorCode": null,
     "errorDescription": null,
-    "commandState": "Created"
-  }
-}
-----
-====
-
-=== Ответ
-.JSON
-[%collapsible]
-====
-[source,json]
-----
-{
-  "result": {
-    "entityId": "08dc4fda-a16c-4c4f-8558-70906c5ceef6",
-    "isSuccess": true,
-    "errorCode": null,
-    "errorDescription": null,
     "commandState": "Updated"
   }
 }
@@ -587,6 +569,10 @@ http://api.stage.lokeodata.ru:5002/swagger/index.html?urls.primaryName=Main%20We
 == Получение списка оповещений
 * GET web/notifications
 
+=== Параметры запроса
+* **publicationTypes** - тип публикации
+** Например: web/notifications?publicationTypes=Email,Sms
+
 === Ответ
 .JSON
 [%collapsible]
@@ -612,6 +598,10 @@ http://api.stage.lokeodata.ru:5002/swagger/index.html?urls.primaryName=Main%20We
 
 == Получение карточки оповещения
 * GET web/notifications/{id}
+
+=== Параметры запроса
+* **id** - id новости
+** Например: mobile/news/08dc4fda-bc16-4c75-8912-f5cf488f79dc
 
 === Ответ
 .JSON
