@@ -1,0 +1,179 @@
+= Новости
+:page-toclevels: 4
+
+http://api.stage.lokeodata.ru:5002/swagger/index.html?urls.primaryName=Main%20Mobile%20API[Сваггер] (секция News)
+
+
+== Получение списка новостей
+* GET mobile/news
+
+=== Параметры запроса
+* **landIds** - список Id участков
+** Например: mobile/news?landIds=1,2,3
+* **tagIds** - список тегов новостей
+** Например: mobile/news?tagIds=08dc4fda-a17f-4f3b-89e8-080f9f6d2a2d, 08dc4fda-a17f-4f3b-89e8-080f9f6d2a4d
+
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+[
+  {
+    "id": "08dc4fda-bc16-4c75-8912-f5cf488f79dc",
+    "title": "Тестовый заголовок",
+    "text": "Тестовый текст",
+    "read": true,
+    "pinned": true,
+    "publicationDate": "2024-03-29T13:26:00.918",
+    "viewCount": 1,
+    "files": [],
+    "photos": [],
+    "tags": [
+      {
+        "id": "08dc4fda-a17f-4f3b-89e8-080f9f6d2a2d",
+        "name": "Новости посёлка"
+      }
+    ],
+    "lands": [
+      {
+        "id": 9538,
+        "number": "29",
+        "prefix": null,
+        "village": {
+          "id": 2,
+          "name": "КП «СОСНОВЫЙ БЕРЕГ»"
+        }
+      },
+      {
+        "id": 10099,
+        "number": "80",
+        "prefix": null,
+        "village": {
+          "id": 1,
+          "name": "Калинка-Малинка"
+        }
+      }
+    ]
+  }
+]
+----
+====
+
+== Получение списка тегов новостей
+* GET mobile/news/tags - использовать для фильтрации новостей
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+[
+  {
+    "name": "Новости посёлка",
+    "id": "08235eb7-c08a-49f0-afff-4c7bd62c24f9"
+  },
+  {
+    "name": "Водоснабжение",
+    "id": "30ba04b4-d555-41ef-ab88-0116bb62b8cd"
+  },
+  {
+    "name": "Ремонт дорог",
+    "id": "418a2cd0-2b02-4cf0-92ab-35e10fd321d2"
+  },
+  {
+    "name": "Управляющая компания",
+    "id": "591ad90b-7e6b-4e5b-b944-918254f067e1"
+  },
+  {
+    "name": "Обслуживание",
+    "id": "69baa4b8-d8d7-4685-ac47-182583be238b"
+  },
+  {
+    "name": "Объявления",
+    "id": "bb5c5975-4941-4848-a789-92d281714a6d"
+  }
+]
+----
+====
+
+== Получение карточки новости
+* GET mobile/news/{id}
+
+=== Параметры запроса
+* **id** - id новости
+** Например: mobile/news/08dc4fda-bc16-4c75-8912-f5cf488f79dc
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "id": "08dc4fda-bc16-4c75-8912-f5cf488f79dc",
+  "title": "Тестовый заголовок",
+  "text": "Тестовый текст",
+  "read": true,
+  "pinned": true,
+  "publicationDate": "2024-03-29T13:26:00.918",
+  "viewCount": 1,
+  "files": [],
+  "photos": [],
+  "tags": [
+    {
+      "id": "08dc4fda-a17f-4f3b-89e8-080f9f6d2a2d",
+      "name": "Новости посёлка"
+    }
+  ],
+  "lands": [
+    {
+      "id": 9538,
+      "number": "29",
+      "prefix": null,
+      "village": {
+        "id": 2,
+        "name": "КП «СОСНОВЫЙ БЕРЕГ»"
+      }
+    },
+    {
+      "id": 10099,
+      "number": "80",
+      "prefix": null,
+      "village": {
+        "id": 1,
+        "name": "Калинка-Малинка"
+      }
+    }
+  ]
+}
+----
+====
+
+== Прочтение новости
+* POST mobile/news/{id}/read
+
+=== Параметры запроса
+* **id** - id новости
+** Например: mobile/news/08dc4fda-bc16-4c75-8912-f5cf488f79dc/read
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "result": {
+    "entityId": "08dc4fda-bc16-4c75-8912-f5cf488f79dc",
+    "isSuccess": true,
+    "errorCode": null,
+    "errorDescription": null,
+    "commandState": "Updated"
+  }
+}
+----
+====

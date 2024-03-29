@@ -1,2 +1,3 @@
 * Мобила
 ** xref:start-screen.adoc[]
+** xref:news.adoc[]
