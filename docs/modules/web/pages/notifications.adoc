@@ -1,0 +1,683 @@
+= Оповещения
+:page-toclevels: 4
+
+http://api.stage.lokeodata.ru:5002/swagger/index.html?urls.primaryName=Main%20Web%20API[Сваггер] (секция Notifications)
+
+
+== Enums
+* publicationState
+** Created - Создано
+** InProgress - В процессе публикации
+** Published - Опубликовано
+** Archived - Архивировано/Снято с публикации
+
+* publicationType
+** MobileAccount - Личный кабинет (Новость)
+** Email - Электронная почта
+** Sms - СМС
+
+== Создание новости
+* POST web/notifications/news
+
+=== Запрос
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "name": "Тестовая новость",
+  "title": "Тестовый заголовок",
+  "text": "Тестовый текст",
+  "tags": [
+    {
+      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+    }
+  ],
+  "files": [
+    {
+      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+    }
+  ],
+  "photos": [
+    {
+      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+    }
+  ],
+  "publicationSettings": {
+    "lands": [
+      {
+        "id": 9538
+      },
+      {
+        "id": 10099
+      }
+    ],
+    "pinWhenPublishing": true,
+    "delayPublication": true,
+    "delayedPublicationDate": "2024-03-29T11:49:07.946Z"
+  }
+}
+----
+====
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "result": {
+    "entityId": "08dc4fda-a16c-4c4f-8558-70906c5ceef6",
+    "isSuccess": true,
+    "errorCode": null,
+    "errorDescription": null,
+    "commandState": "Created"
+  }
+}
+
+----
+====
+
+== Создание оповещения по email
+* POST web/notifications/email
+
+=== Запрос
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "name": "Тестовая новость",
+  "title": "Тестовый заголовок",
+  "text": "Тестовый текст",
+  "files": [
+    {
+      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+    }
+  ],
+  "photos": [
+    {
+      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+    }
+  ],
+  "publicationSettings": {
+    "lands": [
+      {
+        "id": 9538
+      },
+      {
+        "id": 10099
+      }
+    ],
+    "notifyOwners": true,
+    "notifyRepresentatives": true,
+    "delayPublication": true,
+    "delayedPublicationDate": "2024-03-29T11:49:07.946Z"
+  }
+}
+----
+====
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "result": {
+    "entityId": "08dc4fda-a16c-4c4f-8558-70906c5ceef6",
+    "isSuccess": true,
+    "errorCode": null,
+    "errorDescription": null,
+    "commandState": "Created"
+  }
+}
+
+----
+====
+
+== Создание оповещения по sms
+* POST web/notifications/sms
+
+=== Запрос
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "name": "Тестовая новость",
+  "title": "Тестовый заголовок",
+  "text": "Тестовый текст",
+  "publicationSettings": {
+    "lands": [
+      {
+        "id": 9538
+      },
+      {
+        "id": 10099
+      }
+    ],
+    "notifyOwners": true,
+    "notifyRepresentatives": true,
+    "delayPublication": true,
+    "delayedPublicationDate": "2024-03-29T11:49:07.946Z"
+  }
+}
+----
+====
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "result": {
+    "entityId": "08dc4fda-a16c-4c4f-8558-70906c5ceef6",
+    "isSuccess": true,
+    "errorCode": null,
+    "errorDescription": null,
+    "commandState": "Created"
+  }
+}
+
+----
+====
+
+== Редактирование новости
+* POST web/notifications/news/edit
+
+=== Запрос
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "name": "Тестовая новость",
+  "title": "Тестовый заголовок",
+  "text": "Тестовый текст",
+  "tags": [
+    {
+      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+    }
+  ],
+  "files": [
+    {
+      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+    }
+  ],
+  "photos": [
+    {
+      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+    }
+  ],
+  "publicationSettings": {
+    "lands": [
+      {
+        "id": 9538
+      },
+      {
+        "id": 10099
+      }
+    ],
+    "pinWhenPublishing": true,
+    "delayPublication": true,
+    "delayedPublicationDate": "2024-03-29T11:49:07.946Z"
+  }
+}
+----
+====
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "result": {
+    "entityId": "08dc4fda-a16c-4c4f-8558-70906c5ceef6",
+    "isSuccess": true,
+    "errorCode": null,
+    "errorDescription": null,
+    "commandState": "Updated"
+  }
+}
+
+----
+====
+
+== Редактирование оповещения по email
+* POST web/notifications/email/edit
+
+
+=== Запрос
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6", 
+  "name": "Тестовая новость",
+  "title": "Тестовый заголовок",
+  "text": "Тестовый текст",
+  "files": [
+    {
+      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+    }
+  ],
+  "photos": [
+    {
+      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+    }
+  ],
+  "publicationSettings": {
+    "lands": [
+      {
+        "id": 9538
+      },
+      {
+        "id": 10099
+      }
+    ],
+    "notifyOwners": true,
+    "notifyRepresentatives": true,
+    "delayPublication": true,
+    "delayedPublicationDate": "2024-03-29T11:49:07.946Z"
+  }
+}
+----
+====
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "result": {
+    "entityId": "08dc4fda-a16c-4c4f-8558-70906c5ceef6",
+    "isSuccess": true,
+    "errorCode": null,
+    "errorDescription": null,
+    "commandState": "Updated"
+  }
+}
+
+----
+====
+
+== Редактирование оповещения по sms
+* POST web/notifications/sms/edit
+
+=== Запрос
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "name": "Тестовая новость",
+  "title": "Тестовый заголовок",
+  "text": "Тестовый текст",
+  "publicationSettings": {
+    "lands": [
+      {
+        "id": 9538
+      },
+      {
+        "id": 10099
+      }
+    ],
+    "notifyOwners": true,
+    "notifyRepresentatives": true,
+    "delayPublication": true,
+    "delayedPublicationDate": "2024-03-29T11:49:07.946Z"
+  }
+}
+----
+====
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "result": {
+    "entityId": "08dc4fda-a16c-4c4f-8558-70906c5ceef6",
+    "isSuccess": true,
+    "errorCode": null,
+    "errorDescription": null,
+    "commandState": "Created"
+  }
+}
+----
+====
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "result": {
+    "entityId": "08dc4fda-a16c-4c4f-8558-70906c5ceef6",
+    "isSuccess": true,
+    "errorCode": null,
+    "errorDescription": null,
+    "commandState": "Updated"
+  }
+}
+
+----
+====
+
+== Получение количества получателей для новости
+* POST web/notifications/news/receivers - использовать в режиме создания/редактирования оповещения
+
+=== Запрос
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "lands": [
+      {
+        "id": 9538
+      },
+      {
+        "id": 10099
+      }
+  ]
+}
+----
+====
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "result": {
+    "isSuccess": true,
+    "errorCode": null,
+    "errorDescription": null,
+    "commandState": null
+  },
+  "payload": {
+    "count": 1
+  }
+}
+
+----
+====
+
+== Получение количества получателей для email
+* POST web/notifications/email/receivers - использовать в режиме создания/редактирования оповещения
+
+=== Запрос
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "notifyOwners": true,
+  "notifyRepresentatives": true,
+  "lands": [
+      {
+        "id": 9538
+      },
+      {
+        "id": 10099
+      }
+  ]
+}
+----
+====
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "result": {
+    "isSuccess": true,
+    "errorCode": null,
+    "errorDescription": null,
+    "commandState": null
+  },
+  "payload": {
+    "count": 1
+  }
+}
+
+----
+====
+
+== Получение количества получателей для sms
+* POST web/notifications/sms/receivers - использовать в режиме создания/редактирования оповещения
+
+=== Запрос
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "notifyOwners": true,
+  "notifyRepresentatives": true,
+  "lands": [
+      {
+        "id": 9538
+      },
+      {
+        "id": 10099
+      }
+  ]
+}
+----
+====
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "result": {
+    "isSuccess": true,
+    "errorCode": null,
+    "errorDescription": null,
+    "commandState": null
+  },
+  "payload": {
+    "count": 1
+  }
+}
+
+----
+====
+
+== Получение списка шаблонов контента
+* GET web/notifications/templates
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+[
+  {
+    "name": "Тестовое название",
+    "title": "Тестовый заголовок",
+    "text": "Тестовый текст",
+    "id": "08235eb7-c08a-49f0-afff-4c7bd62c24f9"
+  },
+  {
+    "name": "Тестовое название 2",
+    "title": "Тестовый заголовок 2",
+    "text": "Тестовый текст 2",
+    "id": "08235eb7-c08a-49f0-afff-4c7bd62c24f8"
+  },
+]
+
+----
+====
+
+== Получение списка тегов для оповещений
+* GET web/notifications/tags
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+[
+  {
+    "name": "Новости посёлка",
+    "id": "08235eb7-c08a-49f0-afff-4c7bd62c24f9"
+  },
+  {
+    "name": "Водоснабжение",
+    "id": "30ba04b4-d555-41ef-ab88-0116bb62b8cd"
+  },
+  {
+    "name": "Ремонт дорог",
+    "id": "418a2cd0-2b02-4cf0-92ab-35e10fd321d2"
+  },
+  {
+    "name": "Управляющая компания",
+    "id": "591ad90b-7e6b-4e5b-b944-918254f067e1"
+  },
+  {
+    "name": "Обслуживание",
+    "id": "69baa4b8-d8d7-4685-ac47-182583be238b"
+  },
+  {
+    "name": "Объявления",
+    "id": "bb5c5975-4941-4848-a789-92d281714a6d"
+  }
+]
+----
+====
+
+== Получение списка оповещений
+* GET web/notifications
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+[
+  {
+    "name": "Тестовая новость",
+    "receiverCount": 2,
+    "publicationDate": "2024-03-29T12:34:12.023",
+    "publicationState": "InProgress",
+    "pinned": true,
+    "publicationSettings": {
+      "publicationType": "MobileAccount",
+      "id": "08dc4fd3-6466-4068-8df5-c8619a9a91e6"
+    },
+    "id": "08dc4fd3-645d-4e2d-8472-33e8a94cbfde"
+  }
+]
+----
+====
+
+== Получение карточки оповещения
+* GET web/notifications/{id}
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "id": "08dc4fda-a16c-4c4f-8558-70906c5ceef6",
+  "name": "Тестовая новость",
+  "title": "Тестовый заголовок",
+  "text": "Тестовый текст",
+  "tags": [
+    {
+      "id": "08dc4fda-a17f-4f3b-89e8-080f9f6d2a2d",
+      "name": "Новости посёлка"
+    }
+  ],
+  "files": [
+        {
+          "id": "08dc4fda-a17f-4f3b-89e8-080f9f6d2a2d",
+          "name": "Чудо Град.xml",
+          "publicPath" : "https://s3.yandexcloud.net/lokeo-dev/cadastralPlans/08db98c4-948a-4aef-89ad-065c20cf9db7-Чудо Град.xml"
+        }
+    ],
+  "photos": [
+        {
+          "id": "08dc4fda-a17f-4f3b-89e8-080f9f6d2a2d",
+          "name": "Чудо Град.png",
+          "publicPath" : "https://s3.yandexcloud.net/lokeo-dev/cadastralPlans/08db98c4-948a-4aef-89ad-065c20cf9db7-Чудо Град.png"
+        }
+    ],
+  "publicationSettings": {
+    "id": "08dc4fda-a176-48e8-8da9-fe118427e713",
+    "lands": [
+      {
+        "id": 9538,
+        "mainLandVersion": {
+          "id": 9539,
+          "prefix": null,
+          "number": "29"
+        },
+        "village": {
+          "id": 2,
+          "name": "КП «СОСНОВЫЙ БЕРЕГ»"
+        }
+      },
+      {
+        "id": 10099,
+        "mainLandVersion": {
+          "id": 10103,
+          "prefix": null,
+          "number": "80"
+        },
+        "village": {
+          "id": 1,
+          "name": "Калинка-Малинка"
+        }
+      }
+    ],
+    "notifyOwners": true,
+    "notifyRepresentatives": true,
+    "pinWhenPublishing": true,
+    "delayPublication": true,
+    "delayedPublicationDate": "2024-03-29T11:49:07.946Z"
+  }
+}
+----
+====
