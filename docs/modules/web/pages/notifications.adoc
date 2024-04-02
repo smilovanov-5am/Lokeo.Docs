@@ -16,6 +16,15 @@ http://api.stage.lokeodata.ru:5002/swagger/index.html?urls.primaryName=Main%20We
 ** Email - Электронная почта
 ** Sms - СМС
 
+
+== Хаб для получение статусов оповещений
+* notificationHub
+
+=== NotificationPublicationStateChanged
+id - Id оповещения
+publicationState - Статус публикации
+
+
 == Создание новости
 * POST web/notifications/news
 
