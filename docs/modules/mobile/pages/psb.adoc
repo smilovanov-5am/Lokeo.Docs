@@ -1,0 +1,46 @@
+= ПСБ
+:page-toclevels: 4
+
+
+При создании платежа через #POST mobile/payment# и автоплатежа через #POST mobile/autoPaymentSettings# бэк возвращает в payload данные для сборки кнопки ПСБ, которая редиректит на страницу оплаты. 
+.JSON
+[%collapsible]
+====
+[source,vue]
+----
+{
+    "paymentGenerationLink" : "https://3ds.payment.ru/cgi-bin/cgi_link",
+    "inputs" : [
+        {
+            "key" : "key1",
+            "value" : "value1"
+        },
+        {
+            "key" : "key2",
+            "value" : "value2"
+        }
+    ]
+}
+----
+====
+
+Для использования этих данных нужно создать форму с инпутами. Пример во Vue:
+
+.Vue
+[%collapsible]
+====
+[source,vue]
+----
+<template>
+  <form id ='payment_form' :action="psbInput.paymentGenerationLink">
+    <input :key="psbInput.key"
+           :name="psbInput.key"
+           :value="psbInput.value"
+           v-for="psbInput in psbInputs"/>
+    <input type='submit' name='SUBMIT' value='Перейти к оплате' />
+  </form>
+</template>
+----
+====
+
+Сразу после нажатия "Перейти к оплате" происходит редирект на страницу оплаты ПСБ

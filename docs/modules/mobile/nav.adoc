@@ -1,3 +1,4 @@
 * Мобила
 ** xref:start-screen.adoc[]
 ** xref:news.adoc[]
+** xref:psb.adoc[]
