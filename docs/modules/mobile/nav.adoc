@@ -2,3 +2,6 @@
 ** xref:start-screen.adoc[]
 ** xref:news.adoc[]
 ** xref:psb.adoc[]
+** xref:bankCard.adoc[]
+** xref:payment.adoc[]
+** xref:autopayment.adoc[]

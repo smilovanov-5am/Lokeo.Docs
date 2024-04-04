@@ -1,0 +1,63 @@
+= Платежи
+:page-toclevels: 4
+
+
+== Создание платежа через ПСБ
+* POST mobile/payment
+
+Предполагает возможность сделать оплату на конкретный продукт лицевого счёта, если указан productId. Без productId происходит пополнение баланса. В зависимости от настроек лицевого счёта средства с баланса будут автоматически списаны на различные продукты при наличии незакрытых начислений.
+
+psbCardId следует брать из запроса получения банковских карт. Подробнее о банковских картах: xref:bankCard.adoc[]
+
+=== Тело запроса
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "contractId": 1,
+    "productId": 2,
+    "amount": 1000,
+    "psbCardId": "93842149-b0e1-11ee-8b19-f9150f8dc2a5",
+    "sendCheck": true,
+    "emailNotification": "test@mail.ru",
+    "phoneNumberNotification": "79998001122"
+}
+----
+====
+
+
+=== Ответ
+В payload ответа приходят данные для сборки кнопки редиректа на страницу ПСБ. Подробнее: xref:psb.adoc[]
+
+
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "result": {
+    "entityId": 1,
+    "isSuccess": true,
+    "errorCode": null,
+    "errorDescription": null,
+    "commandState": "Created"
+  },
+  "payload" : {
+    "paymentGenerationLink" : "https://3ds.payment.ru/cgi-bin/cgi_link",
+    "inputs" : [
+        {
+            "key" : "key1",
+            "value" : "value1"
+        },
+        {
+            "key" : "key2",
+            "value" : "value2"
+        }
+    ]
+  }
+}
+----
+====

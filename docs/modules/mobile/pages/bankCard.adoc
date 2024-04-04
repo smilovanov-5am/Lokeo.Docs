@@ -1,0 +1,81 @@
+= Банковские карты
+:page-toclevels: 4
+
+Банковская карта создаётся после успешной оплаты или регистрации автоплатежа на странице ПСБ.
+
+== Получить список банковских карт
+* GET mobile/bankCards
+
+=== Ответ
+psbCardId нужен для автоматической вставки сохраненной карты на страницу ПСБ
+
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+[
+  {
+    "id": 1,
+    "psbCardId": "93842149-b0e1-11ee-8b19-f9150f8dc2a5",
+    "number": "7777XXXXXXXX1111",
+    "isMain": true
+  },
+  {
+    "id": 2,
+    "psbCardId": "93842149-b0e1-11ee-8b19-f9150f8dc2a6",
+    "number": "1111XXXXXXXX7777",
+    "isMain": false
+  },
+]
+----
+====
+
+
+== Сделать банковскую карту основной
+* POST mobile/bankCards/{id}/setAsMain
+
+=== Параметры запроса
+* **id** - id банковской карты
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "result": {
+    "entityId": 1,
+    "isSuccess": true,
+    "errorCode": null,
+    "errorDescription": null,
+    "commandState": "Updated"
+  }
+}
+----
+====
+
+== Удалить банковскую карту
+* DELETE mobile/bankCards/{id}
+
+=== Параметры запроса
+* **id** - id банковской карты
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "result": {
+    "entityId": 1,
+    "isSuccess": true,
+    "errorCode": null,
+    "errorDescription": null,
+    "commandState": "Deleted"
+  }
+}
+----
+====

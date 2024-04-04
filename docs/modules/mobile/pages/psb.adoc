@@ -2,7 +2,8 @@
 :page-toclevels: 4
 
 
-При создании платежа через #POST mobile/payment# и автоплатежа через #POST mobile/autoPaymentSettings# бэк возвращает в payload данные для сборки кнопки ПСБ, которая редиректит на страницу оплаты. 
+При создании платежа через *POST mobile/payment* и автоплатежа через *POST mobile/autoPaymentSettings* бэк возвращает в payload данные для сборки кнопки ПСБ, которая редиректит на страницу оплаты. 
+
 .JSON
 [%collapsible]
 ====
