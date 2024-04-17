@@ -375,7 +375,7 @@ WordPress отправляет сообщение приложению, что �
 ----
 {
     "deviceId": "f81815e2-7a9a-4136-bd75-3d44512e80b3",
-    "publicVillageId": "03d6afc8-aee9-4d8b-b727-a1fff956284b",
+    "eventType" : "ReturnToInitialView",
     "eventDateTime" : "2024-04-17T16:03:20.714Z",
 }
 ----
