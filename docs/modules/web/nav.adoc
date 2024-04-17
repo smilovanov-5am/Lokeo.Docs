@@ -1,2 +1,4 @@
 * Веб
 ** xref:notifications.adoc[]
+
+** xref:genplanEvent.adoc[]

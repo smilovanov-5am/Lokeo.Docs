@@ -2,4 +2,3 @@
 ** xref:land.adoc[]
 ** xref:village.adoc[]
 ** xref:personIdentity.adoc[]
-** xref:genplanEvent.adoc[]
