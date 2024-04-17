@@ -5,4 +5,3 @@
 ** xref:bankCard.adoc[]
 ** xref:payment.adoc[]
 ** xref:autopayment.adoc[]
-** xref:genplanEvent.adoc[]
