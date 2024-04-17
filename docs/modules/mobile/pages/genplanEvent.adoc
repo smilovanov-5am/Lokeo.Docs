@@ -1,0 +1,384 @@
+= События публичного генплана
+:page-toclevels: 4
+
+== Enums
+* eventType
+** Visit - Визит
+** OpenGenplan - Открыл генплан
+** OpenVillageOnMap - Открыл посёлок с карты
+** OpenVillageFromList - Открыл посёлок из списка в генплане
+** OpenVillageFromExternalButton - Открыл посёлок с внешней кнопки
+** OpenLandOnMap - Открыл участок с карте
+** OpenLandFromExternalButton - Открыл участок с внешней кнопки
+** HoverOnVillageOnMap - Навёл курсор на посёлок на карте
+** HoverOnLandOnMap - Навёл курсор на участок на карте
+** StartFullScreen - Запустил режим полного экрана
+** ExitFullScreen - Вышел из режима полного экрана
+** MouseEnterGenplan - Мышь вошла в компонент генплана
+** MouseExitGenplan -  Мышь вышла из компонента генплана
+** ExitGenplan - Закрыл генплан
+** ExitVillage - Закрыл посёлок
+** ExitLand - Закрыл участок
+** OpenApplicationForm - Открыл форму заявки
+** ReturnToInitialView - Вернулся по кнопке на стартовую позицию камеры
+
+* deviceType
+** Dekstop - Десктоп
+** Tablet - Планшет
+** Mobile - Мобильный телефон
+
+
+
+
+== Эндпойнт
+* POST public/genplanEvents - создать событие пользователя для генплана
+
+DeviceId следует генерировать при открытии генплана, если он отсутствует в LocalStorage.
+Site должен передаваться из WordPress при иницилизации события Визит.
+
+
+=== Общий вид тела запроса
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "deviceId": "f81815e2-7a9a-4136-bd75-3d44512e80b3",
+    "publicVillageId": "03d6afc8-aee9-4d8b-b727-a1fff956284b",
+    "landId": 1,
+    "eventType" : "Visit",
+    "eventDateTime" : "2024-04-17T16:03:20.714Z",
+    "userInfo": {
+        "site" : "https://land.m2o2.ru/zemelnie-uchastki-mo-kottedji/",
+        "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 Edg/123.0.0.0",
+        "ip" : "192.168.1.1",
+        "hasWebGl" : true,
+        "deviceType" : "Mobile"
+    }
+}
+----
+====
+
+
+=== Visit - Визит
+После загрузки компонента генплан вне зависимости от того, работает он или нет, нужно отправить сообщение на сторону WordPress, что приложение загрузилось. В ответ WordPress отправляет на сторону приложение информацию об адресе сайта.
+Приложение создаёт событие визита, добавляя информацию об UserAgent, Ip, наличии/отсутствии WebGl2 и типе устройства.
+
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "deviceId": "f81815e2-7a9a-4136-bd75-3d44512e80b3",
+    "eventType" : "Visit",
+    "eventDateTime" : "2024-04-17T16:03:20.714Z",
+    "userInfo": {
+        "site" : "https://land.m2o2.ru/zemelnie-uchastki-mo-kottedji/",
+        "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 Edg/123.0.0.0",
+        "ip" : "192.168.1.1",
+        "hasWebGl" : true,
+        "deviceType" : "Mobile"
+    }
+}
+----
+====
+
+=== OpenGenplan - Открыл генплан
+WordPress отправляет на сторону приложения сообщение, чтобы пользователь открыл генплан. Приложение создание событие открытия генплана.
+
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "deviceId": "f81815e2-7a9a-4136-bd75-3d44512e80b3",
+    "eventType" : "OpenGenplan",
+    "eventDateTime" : "2024-04-17T16:03:20.714Z",
+}
+----
+====
+
+=== OpenVillageOnMap - Открыл посёлок с карты
+Пользователь нажал на посёлок на карте.
+
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "deviceId": "f81815e2-7a9a-4136-bd75-3d44512e80b3",
+    "publicVillageId": "03d6afc8-aee9-4d8b-b727-a1fff956284b",
+    "eventType" : "OpenVillageOnMap",
+    "eventDateTime" : "2024-04-17T16:03:20.714Z",
+}
+----
+====
+
+=== OpenVillageFromList - Открыл посёлок из списка в генплане
+Пользователь нажал на посёлок из списка в генплане
+
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "deviceId": "f81815e2-7a9a-4136-bd75-3d44512e80b3",
+    "publicVillageId": "03d6afc8-aee9-4d8b-b727-a1fff956284b",
+    "eventType" : "OpenVillageFromList",
+    "eventDateTime" : "2024-04-17T16:03:20.714Z",
+}
+----
+====
+
+=== OpenVillageFromExternalButton - Открыл посёлок с внешней кнопки
+WordPress отправляет сообщение приложению, что пользователь нажал на кнопку на плашке посёлка. Приложение открывает нужный посёлок. Создаётся событие открытия посёлка с внешней кнопки.
+
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "deviceId": "f81815e2-7a9a-4136-bd75-3d44512e80b3",
+    "publicVillageId": "03d6afc8-aee9-4d8b-b727-a1fff956284b",
+    "eventType" : "OpenVillageFromExternalButton",
+    "eventDateTime" : "2024-04-17T16:03:20.714Z",
+}
+----
+====
+
+=== OpenLandOnMap - Открыл участок с карты
+Пользователь нажал на участок на карте.
+
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "deviceId": "f81815e2-7a9a-4136-bd75-3d44512e80b3",
+    "publicVillageId": "03d6afc8-aee9-4d8b-b727-a1fff956284b",
+    "landId": 1,
+    "eventType" : "OpenLandOnMap",
+    "eventDateTime" : "2024-04-17T16:03:20.714Z",
+}
+----
+====
+
+=== OpenLandFromExternalButton - Открыл участок с внешней кнопки
+WordPress отправляет сообщение приложению, что пользователь нажал на кнопку на плашке участка. Приложение открывает нужный участок. Создаётся событие открытия участка с внешней кнопки.
+
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "deviceId": "f81815e2-7a9a-4136-bd75-3d44512e80b3",
+    "publicVillageId": "03d6afc8-aee9-4d8b-b727-a1fff956284b",
+    "landId": 1,
+    "eventType" : "OpenLandFromExternalButton",
+    "eventDateTime" : "2024-04-17T16:03:20.714Z",
+}
+----
+====
+
+
+=== HoverOnVillageOnMap - Навёл курсор на посёлок на карте
+Пользователь навёл курсор на посёлок на карте
+
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "deviceId": "f81815e2-7a9a-4136-bd75-3d44512e80b3",
+    "publicVillageId": "03d6afc8-aee9-4d8b-b727-a1fff956284b",
+    "eventType" : "HoverOnVillageOnMap",
+    "eventDateTime" : "2024-04-17T16:03:20.714Z",
+}
+----
+====
+
+
+=== HoverOnLandOnMap - Навёл курсор на участок на карте
+Пользователь навёл курсор на участок на карте
+
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "deviceId": "f81815e2-7a9a-4136-bd75-3d44512e80b3",
+    "publicVillageId": "03d6afc8-aee9-4d8b-b727-a1fff956284b",
+    "landId": 1,
+    "eventType" : "HoverOnLandOnMap",
+    "eventDateTime" : "2024-04-17T16:03:20.714Z",
+}
+----
+====
+
+
+=== StartFullScreen - Запустил режим полного экрана
+Пользователь нажал на кнопку запуска режима полного экрана (или он запустился автоматически из-за типа устройства)
+
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "deviceId": "f81815e2-7a9a-4136-bd75-3d44512e80b3",
+    "eventType" : "StartFullScreen",
+    "eventDateTime" : "2024-04-17T16:03:20.714Z",
+}
+----
+====
+
+
+=== ExitFullScreen - Вышел из режима полного экрана
+Пользователь нажал на кнопку выхода из режима полного экрана
+
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "deviceId": "f81815e2-7a9a-4136-bd75-3d44512e80b3",
+    "eventType" : "StartFullScreen",
+    "eventDateTime" : "2024-04-17T16:03:20.714Z",
+}
+----
+====
+
+=== MouseEnterGenplan - Мышь вошла в компонент генплана
+Приложение определило, что мышь вошла в пределы компонента генплана.
+
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "deviceId": "f81815e2-7a9a-4136-bd75-3d44512e80b3",
+    "eventType" : "MouseEnterGenplan",
+    "eventDateTime" : "2024-04-17T16:03:20.714Z",
+}
+----
+====
+
+
+=== MouseExitGenplan -  Мышь вышла из компонента генплана
+Приложение определило, что мышь вышла из пределов компонента генплана
+
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "deviceId": "f81815e2-7a9a-4136-bd75-3d44512e80b3",
+    "eventType" : "MouseExitGenplan",
+    "eventDateTime" : "2024-04-17T16:03:20.714Z",
+}
+----
+====
+
+
+=== ExitGenplan - Закрыл генплан
+Приложение определило, что компонент генплана был размонтирован.
+
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "deviceId": "f81815e2-7a9a-4136-bd75-3d44512e80b3",
+    "eventType" : "ExitGenplan",
+    "eventDateTime" : "2024-04-17T16:03:20.714Z",
+}
+----
+====
+
+
+=== ExitVillage - Закрыл посёлок
+Пользователь закрыл посёлок.
+(Не делать, если нет отдельной кнопки закрытия формы посёлка)
+
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "deviceId": "f81815e2-7a9a-4136-bd75-3d44512e80b3",
+    "publicVillageId": "03d6afc8-aee9-4d8b-b727-a1fff956284b",
+    "eventType" : "ExitVillage",
+    "eventDateTime" : "2024-04-17T16:03:20.714Z",
+}
+----
+====
+
+=== ExitLand - Закрыл участок
+Пользователь закрыл участок
+
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "deviceId": "f81815e2-7a9a-4136-bd75-3d44512e80b3",
+    "publicVillageId": "03d6afc8-aee9-4d8b-b727-a1fff956284b",
+    "landId": 1,
+    "eventType" : "ExitLand",
+    "eventDateTime" : "2024-04-17T16:03:20.714Z",
+}
+----
+====
+
+=== OpenApplicationForm - Открыл форму заявки
+Пользователь открыл форму заявки для выбранного участка
+
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "deviceId": "f81815e2-7a9a-4136-bd75-3d44512e80b3",
+    "publicVillageId": "03d6afc8-aee9-4d8b-b727-a1fff956284b",
+    "landId": 1,
+    "eventType" : "OpenApplicationForm",
+    "eventDateTime" : "2024-04-17T16:03:20.714Z",
+}
+----
+====
+
+
+=== ReturnToInitialView - Вернулся по кнопке на стартовую позицию камеры
+Пользователь нажал на кнопку возврата в стартовую позицию камеры
+
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "deviceId": "f81815e2-7a9a-4136-bd75-3d44512e80b3",
+    "publicVillageId": "03d6afc8-aee9-4d8b-b727-a1fff956284b",
+    "eventDateTime" : "2024-04-17T16:03:20.714Z",
+}
+----
+====
+
+
