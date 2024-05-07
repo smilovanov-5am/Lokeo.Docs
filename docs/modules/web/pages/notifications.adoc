@@ -7,14 +7,33 @@ http://api.stage.lokeodata.ru:5002/swagger/index.html?urls.primaryName=Main%20We
 == Enums
 * publicationState
 ** Created - Создано
-** InProgress - В процессе публикации
+** InProgress - В процессе публикации (статус при взятии оповещения системой из очереди на публикацию)
 ** Published - Опубликовано
-** Archived - Архивировано/Снято с публикации
+** Cancelled - Снято с публикации
+** ReadyToPublish - Готово к публикации (статус при нажатии "Опубликовать")
 
 * publicationType
 ** MobileAccount - Личный кабинет (Новость)
 ** Email - Электронная почта
 ** Sms - СМС
+
+* emailStatus
+** Queued - Принято в очередь
+** Sent - Отправлено
+** Delivered - Доставлено
+** Skipped - Не отправлено 
+** SoftBounced - Сообщение не доставлено
+** HardBounced - Сообщение не может быть доставлено
+
+* smsStatus
+** Enqueued - В очереди на отправление
+** Accepted - Принято к отправлению
+** Delivered - Доставлено
+** NonDelivered - Отклонено
+** Scheduled - Запланировано
+** Canceled - Отменено
+** Wait - Ожидает
+** Overdue - Просрочено
 
 
 == Хаб для получение статусов оповещений
@@ -599,6 +618,7 @@ publicationState - Статус публикации
       "publicationType": "MobileAccount",
       "id": "08dc4fd3-6466-4068-8df5-c8619a9a91e6"
     },
+    "isArchived" : false,
     "id": "08dc4fd3-645d-4e2d-8472-33e8a94cbfde"
   }
 ]
@@ -623,6 +643,8 @@ publicationState - Статус публикации
   "name": "Тестовая новость",
   "title": "Тестовый заголовок",
   "text": "Тестовый текст",
+  "pinned" : true,
+  "isArchived" : false,
   "tags": [
     {
       "id": "08dc4fda-a17f-4f3b-89e8-080f9f6d2a2d",
@@ -680,3 +702,280 @@ publicationState - Статус публикации
 }
 ----
 ====
+
+
+== Получение списка получателей для драйвера оповещения
+* GET web/notifications/{id}/receivers
+
+=== Параметры запроса
+* **id** - id оповещения
+* **landIds** - id участка
+** Например: web/notifications/{id}/receivers?landIds=1,2
+* **tagIds** - id тега
+** Например: web/notifications/{id}/receivers?tagIds=08dc4fd3-6466-4068-8df5-c8619a9a91e6
+* **searchTerm** - поиск по номеру участка
+** Например: web/notifications/{id}/receivers?searchTerm=3 Улыбка
+
+=== Ответ (Новость)
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+[
+  {
+    "id" : "08dc4fda-a176-48e8-8da9-fe118427e713",
+    "hasAccount" : true,
+    "canBeNotified" : true,
+    "title" : "Тестовый заголовок",
+    "text" : "Тестовое сообщение",
+    "sent" : true,
+    "delivered" : true,
+    "read" : true,
+    "person" : {
+        "id" : 1,
+        "firstName" : "Иван",
+        "middleName" : "Иван",
+        "lastName" : "Иван"
+    },
+    "lands" : [
+      {
+        "land" : {
+          "mainLandVersion" : {
+            "id" : 1,
+            "prefix" : "А",
+            "number" : "3"
+          },
+          "village" : {
+              "id" : 1,
+              "name" : "Улыбка"
+          },
+        }
+      }
+    ]
+  }
+]
+----
+====
+
+=== Ответ (Email)
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+[
+  {
+    "id" : "08dc4fda-a176-48e8-8da9-fe118427e713",
+    "hasAccount" : true,
+    "canBeNotified" : true,
+    "title" : "Тестовый заголовок",
+    "text" : "Тестовое сообщение",
+    "sent" : true,
+    "delivered" : true,
+    "read" : true,
+    "person" : {
+        "id" : 1,
+        "firstName" : "Иван",
+        "middleName" : "Иван",
+        "lastName" : "Иван"
+    },
+    "lands" : [
+      {
+        "land" : {
+          "mainLandVersion" : {
+            "id" : 1,
+            "prefix" : "А",
+            "number" : "3"
+          },
+          "village" : {
+              "id" : 1,
+              "name" : "Улыбка"
+          },
+        }
+      }
+    ],
+    "emailStatus" : {
+        "hasEmail" : true,
+        "isMainNotifier" : true,
+        "email" : "test@mail.ru",
+        "status" : "Delivered",
+        "open" : true,
+        "redirect" : false,
+        "spam" : false,
+        "unsubscribe" : false
+    }
+  }
+]
+----
+====
+
+=== Ответ (Sms)
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+[
+  {
+    "id" : "08dc4fda-a176-48e8-8da9-fe118427e713",
+    "hasAccount" : true,
+    "canBeNotified" : true,
+    "title" : "Тестовый заголовок",
+    "text" : "Тестовое сообщение",
+    "sent" : true,
+    "delivered" : true,
+    "read" : true,
+    "person" : {
+        "id" : 1,
+        "firstName" : "Иван",
+        "middleName" : "Иван",
+        "lastName" : "Иван"
+    },
+    "lands" : [
+      {
+        "land" : {
+          "mainLandVersion" : {
+            "id" : 1,
+            "prefix" : "А",
+            "number" : "3"
+          },
+          "village" : {
+              "id" : 1,
+              "name" : "Улыбка"
+          },
+        }
+      }
+    ],
+    "smsStatus" : {
+        "hasPhoneNumber" : true,
+        "isMainNotifier" : true,
+        "phone" : "79007001122",
+        "price" : 1.00,
+        "status" : "Delivered"
+    }
+  }
+]
+----
+====
+
+== Получение текста сообщения для получателя
+* GET web/receivers/{id}/text
+
+=== Параметры запроса
+* **id** - id получателя (берётся из родительского id получателя из списка получателей)
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+[
+  {
+    "title" : "Тестовый заголовок",
+    "text" : "Тестовое сообщение",
+  }
+]
+----
+====
+
+
+== Публикация оповещения
+* POST web/notifications/{id}/publish
+
+=== Параметры запроса
+* **id** - id оповещения
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+[
+  {
+    "result" : {
+      "entityId" : "08dc4fda-a176-48e8-8da9-fe118427e713",
+      "isSuccess" : true,
+      "commandState" : "Updated"
+    }
+  }
+]
+----
+====
+
+== Снятие с публикации оповещения
+* POST web/notifications/{id}/unpublish
+
+=== Параметры запроса
+* **id** - id оповещения
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+[
+  {
+    "result" : {
+      "entityId" : "08dc4fda-a176-48e8-8da9-fe118427e713",
+      "isSuccess" : true,
+      "commandState" : "Updated"
+    }
+  }
+]
+----
+====
+
+
+== Архивация оповещения
+* DELETE web/notifications/{id}/archive
+
+=== Параметры запроса
+* **id** - id оповещения
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+[
+  {
+    "result" : {
+      "entityId" : "08dc4fda-a176-48e8-8da9-fe118427e713",
+      "isSuccess" : true,
+      "commandState" : "Archived"
+    }
+  }
+]
+----
+====
+
+== Удаление оповещения
+* DELETE web/notifications/{id}
+
+=== Параметры запроса
+* **id** - id оповещения
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+[
+  {
+    "result" : {
+      "entityId" : "08dc4fda-a176-48e8-8da9-fe118427e713",
+      "isSuccess" : true,
+      "commandState" : "Deleted"
+    }
+  }
+]
+----
+====
+
+
