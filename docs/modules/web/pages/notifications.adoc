@@ -7,10 +7,11 @@ http://api.stage.lokeodata.ru:5002/swagger/index.html?urls.primaryName=Main%20We
 == Enums
 * publicationState
 ** Created - Создано
+** ReadyToPublish - Готово к публикации (статус после редактирования оповещения)** ReadyToBeSent - Готово к отправке (статус после немедленной публикации)
+** Scheduled - Добавлено в расписание (статус после отложенной публикации)
 ** InProgress - В процессе публикации (статус при взятии оповещения системой из очереди на публикацию)
 ** Published - Опубликовано
-** Cancelled - Снято с публикации
-** ReadyToPublish - Готово к публикации (статус при нажатии "Опубликовать")
+
 
 * publicationType
 ** MobileAccount - Личный кабинет (Новость)
@@ -55,36 +56,6 @@ publicationState - Статус публикации
 ----
 {
   "name": "Тестовая новость",
-  "title": "Тестовый заголовок",
-  "text": "Тестовый текст",
-  "tags": [
-    {
-      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
-    }
-  ],
-  "files": [
-    {
-      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
-    }
-  ],
-  "photos": [
-    {
-      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
-    }
-  ],
-  "publicationSettings": {
-    "lands": [
-      {
-        "id": 9538
-      },
-      {
-        "id": 10099
-      }
-    ],
-    "pinWhenPublishing": true,
-    "delayPublication": true,
-    "delayedPublicationDate": "2024-03-29T11:49:07.946Z"
-  }
 }
 ----
 ====
@@ -119,32 +90,6 @@ publicationState - Статус публикации
 ----
 {
   "name": "Тестовая новость",
-  "title": "Тестовый заголовок",
-  "text": "Тестовый текст",
-  "files": [
-    {
-      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
-    }
-  ],
-  "photos": [
-    {
-      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
-    }
-  ],
-  "publicationSettings": {
-    "lands": [
-      {
-        "id": 9538
-      },
-      {
-        "id": 10099
-      }
-    ],
-    "notifyOwners": true,
-    "notifyRepresentatives": true,
-    "delayPublication": true,
-    "delayedPublicationDate": "2024-03-29T11:49:07.946Z"
-  }
 }
 ----
 ====
@@ -179,22 +124,6 @@ publicationState - Статус публикации
 ----
 {
   "name": "Тестовая новость",
-  "title": "Тестовый заголовок",
-  "text": "Тестовый текст",
-  "publicationSettings": {
-    "lands": [
-      {
-        "id": 9538
-      },
-      {
-        "id": 10099
-      }
-    ],
-    "notifyOwners": true,
-    "notifyRepresentatives": true,
-    "delayPublication": true,
-    "delayedPublicationDate": "2024-03-29T11:49:07.946Z"
-  }
 }
 ----
 ====
@@ -220,6 +149,8 @@ publicationState - Статус публикации
 
 == Редактирование новости
 * POST web/notifications/news/edit
+* Можно редактировать при статусе Created или ReadyToPublish
+* Меняет статус на ReadyToPublish
 
 === Запрос
 .JSON
@@ -229,7 +160,6 @@ publicationState - Статус публикации
 ----
 {
   "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-  "name": "Тестовая новость",
   "title": "Тестовый заголовок",
   "text": "Тестовый текст",
   "tags": [
@@ -256,9 +186,7 @@ publicationState - Статус публикации
         "id": 10099
       }
     ],
-    "pinWhenPublishing": true,
-    "delayPublication": true,
-    "delayedPublicationDate": "2024-03-29T11:49:07.946Z"
+    "pinWhenPublishing": true
   }
 }
 ----
@@ -285,7 +213,8 @@ publicationState - Статус публикации
 
 == Редактирование оповещения по email
 * POST web/notifications/email/edit
-
+* Можно редактировать при статусе Created или ReadyToPublish
+* Меняет статус на ReadyToPublish
 
 === Запрос
 .JSON
@@ -294,8 +223,7 @@ publicationState - Статус публикации
 [source,json]
 ----
 {
-  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6", 
-  "name": "Тестовая новость",
+  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
   "title": "Тестовый заголовок",
   "text": "Тестовый текст",
   "files": [
@@ -318,9 +246,7 @@ publicationState - Статус публикации
       }
     ],
     "notifyOwners": true,
-    "notifyRepresentatives": true,
-    "delayPublication": true,
-    "delayedPublicationDate": "2024-03-29T11:49:07.946Z"
+    "notifyRepresentatives": true
   }
 }
 ----
@@ -347,6 +273,8 @@ publicationState - Статус публикации
 
 == Редактирование оповещения по sms
 * POST web/notifications/sms/edit
+* Можно редактировать при статусе Created или ReadyToPublish
+* Меняет статус на ReadyToPublish
 
 === Запрос
 .JSON
@@ -356,7 +284,6 @@ publicationState - Статус публикации
 ----
 {
   "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-  "name": "Тестовая новость",
   "title": "Тестовый заголовок",
   "text": "Тестовый текст",
   "publicationSettings": {
@@ -369,9 +296,7 @@ publicationState - Статус публикации
       }
     ],
     "notifyOwners": true,
-    "notifyRepresentatives": true,
-    "delayPublication": true,
-    "delayedPublicationDate": "2024-03-29T11:49:07.946Z"
+    "notifyRepresentatives": true
   }
 }
 ----
@@ -883,9 +808,25 @@ publicationState - Статус публикации
 
 == Публикация оповещения
 * POST web/notifications/{id}/publish
+* Можно публиковать при статусе ReadyToPublish или Scheduled (для смены времени публикации)
+* Меняет статус на Scheduled или ReadyToBeSent
 
 === Параметры запроса
 * **id** - id оповещения
+
+
+=== Запрос
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "delayPublication": true,
+  "delayedPublicationDate": "2024-03-29T11:49:07.946Z"
+}
+----
+====
 
 === Ответ
 .JSON
@@ -907,6 +848,8 @@ publicationState - Статус публикации
 
 == Снятие с публикации оповещения
 * POST web/notifications/{id}/unpublish
+* Можно снимать с публикации при статусе Scheduled
+* Возвращает на статус ReadyToPublish
 
 === Параметры запроса
 * **id** - id оповещения
@@ -932,6 +875,7 @@ publicationState - Статус публикации
 
 == Архивация оповещения
 * DELETE web/notifications/{id}/archive
+* Можно архивировать при статусе Published
 
 === Параметры запроса
 * **id** - id оповещения
@@ -956,6 +900,7 @@ publicationState - Статус публикации
 
 == Удаление оповещения
 * DELETE web/notifications/{id}
+* Можно удалять при статусе Created или ReadyToPublish
 
 === Параметры запроса
 * **id** - id оповещения
