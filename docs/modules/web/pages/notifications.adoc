@@ -898,6 +898,32 @@ publicationState - Статус публикации
 ----
 ====
 
+
+== Восстановление из архива оповещения
+* POST web/notifications/{id}/restore
+* Можно восстановить при isArchived
+
+=== Параметры запроса
+* **id** - id оповещения
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+[
+  {
+    "result" : {
+      "entityId" : "08dc4fda-a176-48e8-8da9-fe118427e713",
+      "isSuccess" : true,
+      "commandState" : "Updated"
+    }
+  }
+]
+----
+====
+
 == Удаление оповещения
 * DELETE web/notifications/{id}
 * Можно удалять при статусе Created или ReadyToPublish
