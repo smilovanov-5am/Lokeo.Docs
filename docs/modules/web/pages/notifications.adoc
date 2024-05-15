@@ -549,7 +549,7 @@ publicationState - Статус публикации
       "publicationType": "MobileAccount",
       "id": "08dc4fd3-6466-4068-8df5-c8619a9a91e6"
     },
-    "isArchived" : false,
+    "isDeleted" : false,
     "id": "08dc4fd3-645d-4e2d-8472-33e8a94cbfde"
   }
 ]
@@ -575,7 +575,7 @@ publicationState - Статус публикации
   "title": "Тестовый заголовок",
   "text": "Тестовый текст",
   "pinned" : true,
-  "isArchived" : false,
+  "isDeleted" : false,
   "tags": [
     {
       "id": "08dc4fda-a17f-4f3b-89e8-080f9f6d2a2d",
@@ -907,7 +907,7 @@ publicationState - Статус публикации
 
 == Восстановление из архива оповещения
 * POST web/notifications/{id}/restore
-* Можно восстановить при isArchived
+* Можно восстановить при isDeleted
 
 === Параметры запроса
 * **id** - id оповещения
