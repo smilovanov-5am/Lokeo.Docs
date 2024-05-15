@@ -36,6 +36,10 @@ http://api.stage.lokeodata.ru:5002/swagger/index.html?urls.primaryName=Main%20We
 ** Wait - Ожидает
 ** Overdue - Просрочено
 
+* entityStatus (используется для фильтрация архивированных)
+** Created - Создано (если не в архиве)
+** Archived - Архивировано
+
 
 == Хаб для получение статусов оповещений
 * notificationHub
@@ -525,6 +529,8 @@ publicationState - Статус публикации
 === Параметры запроса
 * **publicationTypes** - тип публикации
 ** Например: web/notifications?publicationTypes=Email,Sms
+* **entityStatus** - статус сущности (архивировано или нет)
+** Например: web/notifications?entityStatus=Created,Archived (забираем все)
 
 === Ответ
 .JSON
