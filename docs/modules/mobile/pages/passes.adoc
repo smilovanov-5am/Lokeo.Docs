@@ -31,7 +31,6 @@
 ----
 {
     "id": 1,
-
     "firstName": 1000,
     "middleName" : 3,
     "lastName" : false,
