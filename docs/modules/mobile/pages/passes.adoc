@@ -1,0 +1,80 @@
+= Пропуска
+:page-toclevels: 4
+
+== Enums
+* state
+** Created - Создан
+** WaitApproval - По заявке / на рассмотрении
+** Activated - Активирован
+** Blocked - Заблокирован
+** Revoked - Отозван
+** Archived - Архивирован
+
+* passDuration
+** Temporary - Временный пропуск
+** Permanent - Постоянный пропуск
+
+== Получить список пропусков
+* POST mobile/passes/v2
+
+=== Параметры запроса
+* **states** - состояния пропуска 
+** Например: mobile/passes/v2?states=Created, Activated
+* **passDurations** - тип временности пропуска
+** Например: mobile/passes/v2?passDurations=Temporary
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "id": 1,
+
+    "firstName": 1000,
+    "middleName" : 3,
+    "lastName" : false,
+    "personGroupName": "Житель",
+    "personGroupIcon": "https://storage.yandexcloud.net/lokeo-dev/icons/Home_duotone.svg",
+    "passDuration" : "Temporary",
+    "state": "Activated",
+    "entryLimit" : 1, //количество въездов 
+    "validityDaysFromFirstEntry" : 1, //количество дней
+    "land": {
+        "id" : 1,
+        "number" : "1",
+        "prefix": "А",
+        "village" : {
+            "id" : 1,
+            "name" : "Калинка-Малинка"
+        }
+    },
+    "vehicle" : {
+        "id" : 1,
+        "stateNumber" : "H729AG102"
+    }
+}
+----
+====
+
+== Получить количество пропусков
+* POST mobile/passes/v2/count
+
+=== Параметры запроса
+* **states** - состояния пропуска 
+** Например: mobile/passes/v2?states=Created, Activated
+* **passDurations** - тип временности пропуска
+** Например: mobile/passes/v2?passDurations=Temporary
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "count": 3
+}
+----
+====
