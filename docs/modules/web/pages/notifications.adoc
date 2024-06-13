@@ -955,4 +955,75 @@ publicationState - Статус публикации
 ----
 ====
 
+== Отправка тестового письма
+* POST web/notifications/{id}/email/test
+
+=== Параметры запроса
+* **id** - id оповещения
+
+=== Запрос
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "email": "test@mail.ru",
+}
+----
+====
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+[
+  {
+    "result" : {
+      "isSuccess" : true,
+      "commandState" : "Updated"
+    }
+  }
+]
+----
+====
+
+== Отправка тестового sms
+* POST web/notifications/{id}/sms/test
+
+=== Параметры запроса
+* **id** - id оповещения
+
+=== Запрос
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "sms": "79161112233",
+}
+----
+====
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+[
+  {
+    "result" : {
+      "isSuccess" : true,
+      "commandState" : "Updated"
+    }
+  }
+]
+----
+====
+
+
 
