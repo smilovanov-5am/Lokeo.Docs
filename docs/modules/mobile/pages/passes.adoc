@@ -15,7 +15,7 @@
 ** Permanent - Постоянный пропуск
 
 == Получить список пропусков
-* POST mobile/passes/v2
+* GET mobile/passes/v2
 
 === Параметры запроса
 * **states** - состояния пропуска 
@@ -58,7 +58,7 @@
 ====
 
 == Получить количество пропусков
-* POST mobile/passes/v2/count
+* GET mobile/passes/v2/count
 
 === Параметры запроса
 * **states** - состояния пропуска 
