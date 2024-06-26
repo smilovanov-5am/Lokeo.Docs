@@ -6,3 +6,7 @@
 ** xref:payment.adoc[]
 ** xref:autopayment.adoc[]
 ** xref:passes.adoc[]
+** xref:contract.adoc[]
+** xref:pushes.adoc[]
+** xref:profile.adoc[]
+** xref:integrations.adoc[]

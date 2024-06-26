@@ -1,0 +1,56 @@
+= Пуш-уведомления
+:page-toclevels: 4
+
+== Получить список моих пушей
+* GET mobile/pushes
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+[
+  {
+    "id": "08dc4fda-bc16-4c75-8912-f5cf488f79dc",
+    "title": "Заголовок пуша",
+    "text": "Текст пуша",
+    "read" : false,
+    "creationDate" : "2024-03-29T13:26:00.918",
+  },
+{
+    "id": "08dc4fda-bc16-4c75-8912-f5cf488f79df",
+    "title": "Заголовок пуша 2",
+    "text": "Текст пуша 2",
+    "read" : true,
+    "creationDate" : "2024-03-28T13:26:00.918",
+  }
+]
+----
+====
+
+== Прочитать пуш
+* POST mobile/pushes/{id}/read
+
+=== Параметры запроса
+* **id** - id пуша
+** Например: mobile/pushes/08dc4fda-bc16-4c75-8912-f5cf488f79dc/read
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "result": {
+    "entityId": "08dc4fda-bc16-4c75-8912-f5cf488f79dc",
+    "isSuccess": true,
+    "errorCode": null,
+    "errorDescription": null,
+    "commandState": "Updated"
+  }
+}
+----
+====
+

@@ -1,0 +1,77 @@
+= Профиль настроек
+:page-toclevels: 4
+
+== Получить мои настройки
+* GET mobile/profile
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    //Включить пуш-нотификации
+    "enablePushNotifications":  true,
+    //Отправлять пуш о проведении начисления
+    "sendPushAboutAccrualConduction": true,
+    //Отправлять пуш о списаниях на начисления
+    "sendPushAboutWithdrawalsOnAccrual":  true,
+    //Отправлять пуш об автоплатежах
+    "sendPushAboutAutoPayments" : true,
+    // Отправлять пуш об изменениях статуса пропуска
+    "sendPushAboutPassStatusChange" :  true,
+    //Отправлять пуш по событиям проезда
+    "sendPushAboutPassEvents" :  true,
+    //Отправлять пуш по публикации новостей
+    "sendPushAboutNewsPublication" :  true,
+}
+----
+====
+
+
+== Изменить мои настройки
+* POST mobile/profile
+
+=== Запрос
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    //Включить пуш-нотификации
+    "enablePushNotifications":  true,
+    //Отправлять пуш о проведении начисления
+    "sendPushAboutAccrualConduction": false,
+    //Отправлять пуш о списаниях на начисления
+    "sendPushAboutWithdrawalsOnAccrual":  false,
+    //Отправлять пуш об автоплатежах
+    "sendPushAboutAutoPayments" : true,
+    // Отправлять пуш об изменениях статуса пропуска
+    "sendPushAboutPassStatusChange" :  true,
+    //Отправлять пуш по событиям проезда
+    "sendPushAboutPassEvents" :  true,
+    //Отправлять пуш по публикации новостей
+    "sendPushAboutNewsPublication" :  true,
+}
+----
+====
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "result": {
+    "entityId": "08dc4fda-bc16-4c75-8912-f5cf488f79dc",
+    "isSuccess": true,
+    "errorCode": null,
+    "errorDescription": null,
+    "commandState": "Updated"
+  }
+}
+----
+====

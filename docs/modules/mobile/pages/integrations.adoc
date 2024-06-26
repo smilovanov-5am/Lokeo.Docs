@@ -1,0 +1,17 @@
+= Интеграции
+:page-toclevels: 4
+
+== Проверить наличие интеграции с ОФД
+* GET mobile/integrations/checkOfd
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "hasIntegration":  true
+}
+----
+====
