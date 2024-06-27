@@ -2,3 +2,5 @@
 ** xref:notifications.adoc[]
 
 ** xref:genplanEvent.adoc[]
+
+** xref:controlRoom.adoc[]
