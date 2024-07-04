@@ -1,0 +1,70 @@
+= Пропуска
+:page-toclevels: 4
+
+
+== Сокращение ссылки на пропуск
+* POST web/passes/shortenLink
+
+=== Запрос
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "link": "https://lk.stage.lokeodata.ru/public-pass/08dc9a84-8881-4325-844a-f91dcb089d0f",
+}
+----
+====
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "payload": {
+    "shortenedLink" : "https://loklink.ru/3dtN4E8"
+  },
+
+  "result": {
+    "isSuccess": true,
+    "commandState": "Created"
+  }
+}
+
+----
+====
+
+== Отправка ссылки на пропуск на телефон
+* POST web/passes/send
+
+=== Запрос
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "phoneNumber": "79168001122",  
+  "text": "Ссылка на пропуск: https://loklink.ru/3dtN4E8"
+}
+----
+====
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "result": {
+    "isSuccess": true,
+    "commandState": "Created"
+  }
+}
+
+----
+====

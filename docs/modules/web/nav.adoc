@@ -4,3 +4,5 @@
 ** xref:genplanEvent.adoc[]
 
 ** xref:comments.adoc[]
+
+** xref:passes.adoc[]
