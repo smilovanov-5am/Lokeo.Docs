@@ -29,6 +29,21 @@
 ----
 ====
 
+== Получить количество непрочитанных пушей
+* GET mobile/pushes/count
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "count": 2,
+}
+----
+====
+
 == Прочитать пуш
 * POST mobile/pushes/{id}/read
 
