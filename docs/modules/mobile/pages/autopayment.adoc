@@ -119,9 +119,6 @@ id события соответствует entityId из результата 
 ----
 ====
 
-== Отредактировать автоплатёж
-Менять привязанную к автоплатёж банковскую карту нельзя. Можно только создать новый автоплатёж с другой картой.
-
 === Параметры запроса
 * **id** - id автоплатежа
 
@@ -137,6 +134,7 @@ id события соответствует entityId из результата 
     "payPerMonth": 1000,
     "paymentDay" : 3,
     "useLastDayOfMonth" : false,
+    "psbCardId": "93842149-b0e1-11ee-8b19-f9150f8dc2a5",
     "sendCheck": true,
     "emailNotification": "test@mail.ru",
     "phoneNumberNotification": "79998001122"
