@@ -23,6 +23,7 @@
 * POST web/account/v2/invite
 
 Отправить приглашение лицу для входа в его мобильный аккаунт
+
 === Тело запроса
 .JSON
 [%collapsible]
@@ -39,6 +40,7 @@
 * POST web/account/v2/invite
 
 Изменить логин мобильного аккаунта лица
+
 === Тело запроса
 .JSON
 [%collapsible]
@@ -56,6 +58,7 @@
 * DELETE web/account/v2
 
 Удаляет аккаунт мобильного приложения у лица
+
 === Тело запроса
 .JSON
 [%collapsible]
