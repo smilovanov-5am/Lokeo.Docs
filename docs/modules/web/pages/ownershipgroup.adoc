@@ -1,0 +1,27 @@
+= Собственность
+:page-toclevels: 4
+
+== Проверить закрытие собственности
+* POST web/ownershipGroups/{id}/checkClosing
+
+=== Параметры запроса
+* **id** - id собственности
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "hasActiveContracts": false,
+    "hasActiveAccounts": false
+}
+----
+====
+
+== Закрыть собственность
+* POST web/ownershipGroups/{id}/close
+
+=== Параметры запроса
+* **id** - id собственности

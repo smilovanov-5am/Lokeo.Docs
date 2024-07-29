@@ -10,3 +10,7 @@
 ** xref:account.adoc[]
 
 ** xref:accrual.adoc[]
+
+** xref:ownershipgroup.adoc[]
+
+** xref:contract.adoc[]
