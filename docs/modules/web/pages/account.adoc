@@ -62,7 +62,7 @@
 ====
 
 == Удалить аккаунт
-* DELETE web/account/v2
+* POST web/account/v2/delete
 
 Удаляет аккаунт мобильного приложения у лица
 
