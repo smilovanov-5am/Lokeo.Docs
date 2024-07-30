@@ -14,3 +14,5 @@
 ** xref:ownershipgroup.adoc[]
 
 ** xref:contract.adoc[]
+
+** xref:refund.adoc[]
