@@ -37,7 +37,7 @@
 ====
 
 == Изменить логин
-* POST web/account/v2/invite
+* POST web/account/v2/changeLogin
 
 Изменить логин мобильного аккаунта лица
 
