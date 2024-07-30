@@ -1,6 +1,13 @@
 = Аккаунт
 :page-toclevels: 4
 
+== Enums
+* state
+** NotCreated - Не создан
+** Created - Создан
+** Invited - Приглашен
+** Activated - Активирован
+
 == Создать аккаунт
 * POST web/account/v2/create
 
