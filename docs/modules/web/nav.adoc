@@ -16,3 +16,5 @@
 ** xref:contract.adoc[]
 
 ** xref:refund.adoc[]
+
+** xref:accrualgroup.adoc[]

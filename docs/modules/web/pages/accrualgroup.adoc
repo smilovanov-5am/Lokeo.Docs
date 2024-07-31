@@ -1,0 +1,120 @@
+= Группы начислений
+:page-toclevels: 4
+
+
+== Отменить массово списания
+* POST web/accrualGroups/{id}/adjust
+
+В ответ возвращается список id успешно обработанных начислений
+
+=== Параметры запроса
+* **id** - id группы начисления
+
+=== Тело запроса
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "accrualIds": [1, 2, 3]
+}
+----
+====
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "result": {
+    "entityId": 1,
+    "isSuccess": true,
+    "commandState": "Updated"
+  },
+  "payload" : {
+    "accrualIds": [1, 2]
+  }
+}
+----
+====
+
+== Отменить массово проведения начислений
+* POST web/accrualGroups/{id}/cancelConduction
+
+В ответ возвращается список id успешно обработанных начислений
+
+=== Параметры запроса
+* **id** - id группы начисления
+
+=== Тело запроса
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "accrualIds": [1, 2, 3]
+}
+----
+====
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "result": {
+    "entityId": 1,
+    "isSuccess": true,
+    "commandState": "Updated"
+  },
+  "payload" : {
+    "accrualIds": [1, 2]
+  }
+}
+----
+====
+
+== Удалить массово начисления
+* POST web/accrualGroups/{id}/deleteAccruals
+
+В ответ возвращается список id успешно обработанных начислений
+
+=== Параметры запроса
+* **id** - id группы начисления
+
+=== Тело запроса
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "accrualIds": [1, 2, 3]
+}
+----
+====
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "result": {
+    "entityId": 1,
+    "isSuccess": true,
+    "commandState": "Updated"
+  },
+  "payload" : {
+    "accrualIds": [1, 2]
+  }
+}
+----
+====
