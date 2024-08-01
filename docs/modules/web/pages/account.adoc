@@ -8,6 +8,38 @@
 ** Invited - Приглашен
 ** Activated - Активирован
 
+
+== Проверить наличие лицевых счетов
+* GET web/person/{id}/checkContracts
+
+=== Параметры запроса
+* **id** - id лица
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "hasAnyContracts" : true 
+}
+----
+====
+
+=== Тело запроса
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "personId": 1,
+    "login": "79161112233"
+}
+----
+====
+
 == Создать аккаунт
 * POST web/account/v2/create
 
