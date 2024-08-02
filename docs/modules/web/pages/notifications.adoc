@@ -17,6 +17,7 @@ http://api.stage.lokeodata.ru:5002/swagger/index.html?urls.primaryName=Main%20We
 ** MobileAccount - Личный кабинет (Новость)
 ** Email - Электронная почта
 ** Sms - СМС
+** OwnershipReport - Рассылка по собственности
 
 * emailStatus
 ** Queued - Принято в очередь
@@ -48,6 +49,8 @@ http://api.stage.lokeodata.ru:5002/swagger/index.html?urls.primaryName=Main%20We
 id - Id оповещения
 publicationState - Статус публикации
 
+=== NotificationInvoicesGenerated
+id - Id оповещения
 
 == Создание новости
 * POST web/notifications/news
@@ -128,6 +131,41 @@ publicationState - Статус публикации
 ----
 {
   "name": "Тестовая новость",
+}
+----
+====
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "result": {
+    "entityId": "08dc4fda-a16c-4c4f-8558-70906c5ceef6",
+    "isSuccess": true,
+    "errorCode": null,
+    "errorDescription": null,
+    "commandState": "Created"
+  }
+}
+
+----
+====
+
+== Создание оповещения для рассылки по собственности
+* POST web/notifications/ownership
+
+=== Запрос
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "name": "Тестовая рассылка за август",
+  "period": "2024-08-01T00:00:00.000Z"
 }
 ----
 ====
@@ -325,6 +363,89 @@ publicationState - Статус публикации
 ----
 ====
 
+== Редактирование оповещения для рассылки по собственности
+* POST web/notifications/ownership/edit
+* Можно редактировать при статусе Created или ReadyToPublish
+* Меняет статус на ReadyToPublish
+
+=== Запрос
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "title": "Тестовый заголовок рассылки",
+  "publicationSettings": {
+    "lands": [
+      {
+        "id": 9538
+      },
+      {
+        "id": 10099
+      }
+    ]
+  }
+}
+----
+====
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "result": {
+    "entityId": "08dc4fda-a16c-4c4f-8558-70906c5ceef6",
+    "isSuccess": true,
+    "errorCode": null,
+    "errorDescription": null,
+    "commandState": "Updated"
+  }
+}
+
+----
+====
+
+== Генерация квитанций для рассылки по собственности
+* POST web/notifications/ownership/generate
+* Генерация происходит в фоновом режиме, следует подписаться на notificationHub на событие NotificationInvoicesGenerated, которое сигнализирует об окончании генерации
+* Нельзя генерировать квитанции повторно, если hasInvoices в карточке оповещения == true
+
+=== Запрос
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+}
+----
+====
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "result": {
+    "entityId": "08dc4fda-a16c-4c4f-8558-70906c5ceef6",
+    "isSuccess": true,
+    "errorCode": null,
+    "errorDescription": null,
+    "commandState": "InProgress"
+  }
+}
+
+----
+====
+
 == Получение количества получателей для новости
 * POST web/notifications/news/receivers - использовать в режиме создания/редактирования оповещения
 
@@ -425,6 +546,49 @@ publicationState - Статус публикации
 {
   "notifyOwners": true,
   "notifyRepresentatives": true,
+  "lands": [
+      {
+        "id": 9538
+      },
+      {
+        "id": 10099
+      }
+  ]
+}
+----
+====
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "result": {
+    "isSuccess": true,
+    "errorCode": null,
+    "errorDescription": null,
+    "commandState": null
+  },
+  "payload": {
+    "count": 1
+  }
+}
+
+----
+====
+
+== Получение количества получателей для рассылки собственности
+* POST web/notifications/ownership/receivers - использовать в режиме создания/редактирования оповещения
+
+=== Запрос
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
   "lands": [
       {
         "id": 9538
@@ -575,6 +739,7 @@ publicationState - Статус публикации
   "title": "Тестовый заголовок",
   "text": "Тестовый текст",
   "pinned" : true,
+  "hasInvoices" : true,
   "isDeleted" : false,
   "tags": [
     {
@@ -790,6 +955,78 @@ publicationState - Статус публикации
 ----
 ====
 
+=== Ответ (Рассылка по собственности)
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+[
+  {
+    "id" : "08dc4fda-a176-48e8-8da9-fe118427e713",
+    "hasAccount" : true,
+    "canBeNotified" : true,
+    "title" : "Тестовый заголовок",
+    "text" : "Тестовое сообщение",
+    "sent" : true,
+    "delivered" : true,
+    "read" : true,
+    "person" : {
+        "id" : 1,
+        "firstName" : "Иван",
+        "middleName" : "Иван",
+        "lastName" : "Иван"
+    },
+    "lands" : [
+      {
+        "land" : {
+          "mainLandVersion" : {
+            "id" : 1,
+            "prefix" : "А",
+            "number" : "3"
+          },
+          "village" : {
+              "id" : 1,
+              "name" : "Улыбка"
+          },
+        }
+      }
+    ],
+    "emailStatus" : {
+        "hasEmail" : true,
+        "isMainNotifier" : true,
+        "email" : "test@mail.ru",
+        "status" : "Delivered",
+        "open" : true,
+        "redirect" : false,
+        "spam" : false,
+        "unsubscribe" : false
+    },
+    "ownershipReport" : {
+        "contractInvoices" : [
+          {
+            "link" : "https://test.link1",
+            "contract" : {
+              "name" : "Договор о порядке пользования объектами инфраструктуры и обслуживания садового поселка лицевого счёта ЛП",
+              "contractNumber": "ЛП №41",
+              "id": 18
+            }
+          },
+          {
+            "link" : "https://test.link2",
+            "contract" : {
+              "name" : "Договор о порядке пользования объектами инфраструктуры и обслуживания садового поселка лицевого счёта ЛП",
+              "contractNumber": "ЛП №42",
+              "id": 19
+            }
+          }
+        ]
+    }
+  }
+]
+----
+====
+
 == Получение текста сообщения для получателя
 * GET web/receivers/{id}/text
 
@@ -815,6 +1052,7 @@ publicationState - Статус публикации
 == Публикация оповещения
 * POST web/notifications/{id}/publish
 * Можно публиковать при статусе ReadyToPublish или Scheduled (для смены времени публикации)
+* Внимание! Если тип оповещения является рассылкой по собственности, то опубликовать можно только оповещения с hasInvoices == true
 * Меняет статус на Scheduled или ReadyToBeSent
 
 === Параметры запроса
