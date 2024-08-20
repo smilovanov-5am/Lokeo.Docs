@@ -20,3 +20,82 @@ psbCardId нужен для использовании карты в автоп�
 }
 ----
 ====
+
+== Получить историю финансовых операций лицевого счета
+* GET mobile/contracts/{id}/payments
+
+=== Enums
+* paymentType
+** Funding - Пополнение
+** Withdrawal - Списание
+** Adjustment - Корректировка
+** Refund - Возврат
+
+=== Параметры запроса
+* **id** - id лицевого счёта
+
+=== Ответ
+productName - может быть null
+check - может быть null
+card - может быть null
+
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+[
+  {
+    "productName": null,
+    "number": "97609758",
+    "paymentType": "Funding",
+    "amount": "1.00",
+    "createdAt": "2024-08-05T11:08:34.173",
+    "check": "https://ofd.sbis.ru/rec/0005615888020484/261023/2569951893",
+    "card": null,
+    "id": 139
+  },
+  {
+    "productName": "Обслуживание по договору",
+    "number": "81431962",
+    "paymentType": "Withdrawal",
+    "amount": "3.00",
+    "createdAt": "2024-08-03T00:00:04.195",
+    "check": null,
+    "card": null,
+    "id": 131
+  },
+  {
+    "productName": "Обслуживание по договору",
+    "number": "93171686",
+    "paymentType": "Funding",
+    "amount": "3.00",
+    "createdAt": "2024-08-03T00:00:03.761",
+    "check": null,
+    "card": "2222XXXXXXXX3333",
+    "id": 130
+  },
+  {
+    "productName": null,
+    "number": "93171687",
+    "paymentType": "Refund",
+    "amount": "3.00",
+    "createdAt": "2024-08-03T00:00:03.761",
+    "check": null,
+    "card": null,
+    "id": 200
+  },
+  {
+    "productName": "Обслуживание по договору",
+    "number": "81431962",
+    "paymentType": "Adjustment",
+    "amount": "3.00",
+    "createdAt": "2024-08-03T00:00:04.195",
+    "check": null,
+    "card": null,
+    "id": 201
+  }
+
+]
+----
+====
