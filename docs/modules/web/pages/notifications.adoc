@@ -1048,6 +1048,30 @@ id - Id оповещения
 ----
 ====
 
+== Отправить сообщение получателю
+* POST web/receivers/{id}/sendMessage
+
+=== Параметры запроса
+* **id** - id получателя (берётся из родительского id получателя из списка получателей)
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+[
+  {
+    "result" : {
+      "entityId" : "08dc4fda-a176-48e8-8da9-fe118427e713",
+      "isSuccess" : true,
+      "commandState" : "Updated"
+    }
+  }
+]
+----
+====
+
 
 == Публикация оповещения
 * POST web/notifications/{id}/publish

@@ -4,6 +4,10 @@
 == Получить список моих пушей
 * GET mobile/pushes
 
+=== Параметры запроса
+* **onlyUnread** - только непрочитанные
+** Например: mobile/pushes?onlyUnread=true
+
 === Ответ
 .JSON
 [%collapsible]
@@ -60,6 +64,26 @@
 {
   "result": {
     "entityId": "08dc4fda-bc16-4c75-8912-f5cf488f79dc",
+    "isSuccess": true,
+    "errorCode": null,
+    "errorDescription": null,
+    "commandState": "Updated"
+  }
+}
+----
+====
+
+== Прочитать все непрочитанные пуши
+* POST mobile/pushes/readAllUnread
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "result": {
     "isSuccess": true,
     "errorCode": null,
     "errorDescription": null,
