@@ -1,0 +1,84 @@
+= Пересчет в группах начислений
+:page-toclevels: 4
+
+isRecomputing - флаг в коллекции и карточке группы начислений, означающий произведенный пересчет
+
+== Проверить наличие фичи пересчета на аккаунте
+* GET web/recomputing/checkRecomputingFeature
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "hasRecomputingFeature": true
+}
+----
+====
+
+== Проверить цену по заданной сумме для пересчета
+* POST web/recomputing/{id}/checkPrice
+
+=== Параметры запроса
+* **id** - id группы начисления
+
+=== Тело запроса
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "sum": 100
+}
+----
+====
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "price": 0.1
+}
+----
+====
+
+== Пересчитать стоимость начислений по заданной сумме
+* POST web/recomputing/{id}/recompute
+
+=== Параметры запроса
+* **id** - id группы начисления
+
+=== Тело запроса
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "sum": 100
+}
+----
+====
+
+=== Ответ
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "result": {
+    "entityId": 1,
+    "isSuccess": true,
+    "commandState": "Updated"
+  }
+}
+----
+====
+
