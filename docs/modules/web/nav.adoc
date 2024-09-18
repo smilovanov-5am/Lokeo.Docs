@@ -18,3 +18,5 @@
 ** xref:refund.adoc[]
 
 ** xref:accrualgroup.adoc[]
+
+** xref:recomputing.adoc[]
