@@ -1,0 +1,71 @@
+= Яндекс.Пэй
+:page-toclevels: 4
+
+== Получение настроек Яндекс.Пэй
+* GET mobile/yandexPaySettings
+
+=== Ответ
+- hasYandexPay - подключен ли Яндекс.Пэй (если не подключен, то кнопка оплаты через Яндекс.Пэй не показывается или заблокирована)
+- merchantId
+- merchantName
+- merchantUrl
+- isSandbox - используется ли тестовая среда (sandbox)
+
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "hasYandexPay" : true,
+  "merchantId" : "9f2793ee-e83c-4e04-aa04-d01481f21b44",
+  "merchantName" : "Локео",
+  "merchantUrl" : "https://lokeodata.ru",
+  "isSandbox": true,
+}
+----
+====
+
+== Создание платежа через Яндекс.Пэй
+* POST mobile/payment/v3/yandexPayment
+
+=== Основной кейс. Получение платежной ссылки.
+
+==== Тело запроса
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+    "contractId": 1,
+    "productId": 2,
+    "amount": 1000,
+    "sendCheck": true,
+    "emailNotification": "test@mail.ru",
+    "phoneNumberNotification": "79998001122"
+}
+----
+====
+
+==== Ответ
+В payload ответа приходят данные с платежной ссылкой
+
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "result": {
+    "isSuccess": true,
+    "errorCode": null,
+    "errorDescription": null,
+    "commandState": "Created"
+  },
+  "payload" : {
+    "paymentUrl" : "https://yandex.payment.ru",
+  }
+}
+----
+====

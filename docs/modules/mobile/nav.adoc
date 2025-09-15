@@ -10,3 +10,4 @@
 ** xref:pushes.adoc[]
 ** xref:profile.adoc[]
 ** xref:integrations.adoc[]
+** xref:yandexPay.adoc[]
