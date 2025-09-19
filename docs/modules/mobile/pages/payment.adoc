@@ -8,6 +8,7 @@
 === Ответ
 - hasInternetAcquiring - подключена система эквайринга
 - hasSBP - есть возможность оплаты через СБП
+- hasBankCard - есть возможность оплаты через банковскую карту
 
 .JSON
 [%collapsible]
@@ -17,6 +18,7 @@
 {
   "hasInternetAcquiring" : true,
   "hasSBP": true,
+  "hasBankCard": false,
 }
 ----
 ====
