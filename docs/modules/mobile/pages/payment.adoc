@@ -2,6 +2,26 @@
 :page-toclevels: 4
 
 
+== Получение настроек интернет-эквайринга
+* GET mobile/hasInternetAcquiring
+
+=== Ответ
+- hasInternetAcquiring - подключена система эквайринга
+- hasSBP - есть возможность оплаты через СБП
+
+.JSON
+[%collapsible]
+====
+[source,json]
+----
+{
+  "hasInternetAcquiring" : true,
+  "hasSBP": true,
+}
+----
+====
+
+
 == Создание платежа с возможностью сохранения карты и создания автоплатежа
 * POST mobile/payment/v3
 
@@ -157,6 +177,8 @@
 
 Передавать psbCardId, если выбрана сохранённая существующая карта. Не передавать psbCardId, если выбрана новая карта без её сохранения.
 
+isSPBPayment - сообщает, что оплата будет идти через СБП
+
 ==== Тело запроса
 .JSON
 [%collapsible]
@@ -167,6 +189,7 @@
     "pay" : true,
     "saveNewCard" : false,
     "createAutoPayment" : false,
+    "isSPBPayment" : true,
     "paymentSettings" : {
         "contractId": 1,
         "productId": 2,
