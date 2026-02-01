@@ -33,7 +33,7 @@
 [source,vue]
 ----
 <template>
-  <form id ='payment_form' :action="psbInput.paymentGenerationLink">
+  <form id ='payment_form' :action="psbInput.paymentGenerationLink" method="POST">
     <input :key="psbInput.key"
            :name="psbInput.key"
            :value="psbInput.value"
